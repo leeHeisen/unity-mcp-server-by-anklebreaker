@@ -1,0 +1,78 @@
+{
+ "_comment": "Maps xman88 guide keys (<Category>.<action>) to the AnkleBreaker tools that implement the same operation. Empty arrays mean the guide has no direct equivalent yet; it stays reachable through unity_knowledge(topic:'tool_guide', query:...).",
+ "AssetTools.createAsset": ["unity_asset_import"],
+ "AssetTools.findAssets": ["unity_search_assets"],
+ "AssetTools.loadAsset": ["unity_asset_list", "unity_search_assets"],
+ "AssetTools.manageAsset": ["unity_asset_delete"],
+
+ "ComponentTools.addComponent": ["unity_component_add"],
+ "ComponentTools.getComponents": ["unity_component_get_properties"],
+ "ComponentTools.removeComponent": ["unity_component_remove"],
+ "ComponentTools.setComponentProperties": ["unity_component_set_property"],
+
+ "DebugTools.clearConsole": ["unity_console_clear"],
+ "DebugTools.getEditorPrefs": ["unity_editorprefs_get"],
+ "DebugTools.getLogs": ["unity_console_log"],
+ "DebugTools.log": ["unity_console_log"],
+ "DebugTools.pauseEditor": [],
+ "DebugTools.setEditorPrefs": ["unity_editorprefs_set"],
+
+ "EditorTools.clearConsole": ["unity_console_clear"],
+ "EditorTools.compileScripts": ["unity_get_compilation_errors"],
+ "EditorTools.enterPlayMode": ["unity_play_mode"],
+ "EditorTools.executeMenuItem": ["unity_execute_menu_item"],
+ "EditorTools.getEditorInfo": ["unity_editor_state"],
+ "EditorTools.getProjectSettings": [
+  "unity_settings_player",
+  "unity_settings_physics",
+  "unity_settings_quality",
+  "unity_settings_time",
+  "unity_settings_render_pipeline"
+ ],
+ "EditorTools.getSelection": ["unity_selection_get"],
+ "EditorTools.refresh": [],
+ "EditorTools.setSelection": ["unity_selection_set"],
+
+ "GameObjectTools.createGameObject": ["unity_gameobject_create"],
+ "GameObjectTools.manageGameObject": [
+  "unity_gameobject_info",
+  "unity_gameobject_delete",
+  "unity_gameobject_duplicate",
+  "unity_gameobject_reparent"
+ ],
+ "GameObjectTools.setActive": ["unity_gameobject_set_active"],
+ "GameObjectTools.setGameObjectProperties": ["unity_gameobject_set_transform", "unity_prefab_set_property"],
+
+ "PrefabTools.applyPrefabChanges": ["unity_prefab_apply_overrides"],
+ "PrefabTools.createPrefab": ["unity_asset_create_prefab"],
+ "PrefabTools.instantiatePrefab": ["unity_asset_instantiate_prefab"],
+ "PrefabTools.revertPrefabChanges": ["unity_prefab_revert_overrides"],
+ "PrefabTools.unpackPrefab": ["unity_prefab_unpack"],
+
+ "ProjectTools.createFolder": [],
+ "ProjectTools.createScript": ["unity_script_create"],
+ "ProjectTools.deleteFolder": [],
+ "ProjectTools.getProjectStructure": ["unity_project_info"],
+ "ProjectTools.manageAssetFile": ["unity_asset_delete", "unity_asset_import"],
+
+ "SceneTools.createNewScene": ["unity_scene_new"],
+ "SceneTools.getSceneHierarchy": ["unity_scene_hierarchy"],
+ "SceneTools.getSceneInfo": ["unity_scene_info"],
+ "SceneTools.openScene": ["unity_scene_open"],
+ "SceneTools.saveScene": ["unity_scene_save"],
+
+ "ShaderTools.createMaterial": ["unity_material_create"],
+ "ShaderTools.findShader": ["unity_search_by_shader"],
+ "ShaderTools.getMaterialProperties": ["unity_graphics_material_info"],
+ "ShaderTools.getMaterialShader": ["unity_graphics_material_info"],
+ "ShaderTools.getShaderProperties": ["unity_shadergraph_info", "unity_amplify_info"],
+ "ShaderTools.listShaders": ["unity_search_by_shader", "unity_shadergraph_list"],
+ "ShaderTools.setMaterialProperty": ["unity_component_set_property"],
+ "ShaderTools.setMaterialShader": ["unity_component_set_property", "unity_renderer_set_material"],
+
+ "ValidationTools.cleanupEmptyFolders": [],
+ "ValidationTools.findMissingScripts": ["unity_search_missing_references"],
+ "ValidationTools.optimizeTextures": ["unity_texture_set_import"],
+ "ValidationTools.validateAssets": ["unity_search_missing_references"],
+ "ValidationTools.validateScene": ["unity_search_missing_references", "unity_scene_stats"]
+}
