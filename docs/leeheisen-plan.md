@@ -168,4 +168,37 @@ schema 敏感客户端上换取注册成功率。
 
 ## 9. 活体验证记录
 
-（执行阶段填写）
+验证环境：Unity **6000.3.13f1**（本机 Hub 安装），工程 `tmp/ab-unity6`，
+插件 `com.anklebreaker.unity-mcp 2.40.1`（GitHub `unity-mcp-plugin` 主干），
+bridge 监听 `127.0.0.1:7890`，`/api/ping` 返回 `protocolVersion=1`。
+
+> 注意：本机 2021.3.45f2 无法编译该插件（`EditorApplication.focusChanged`、
+> `IntegerField` 在 2021.3 不存在），且裸工程需要显式添加 `com.unity.ugui`
+> 与 `com.unity.test-framework`，否则 `MCPUICommands.cs` / `MCPTestRunnerCommands.cs` 编译失败。
+
+### 自动化结果
+
+| 用例 | 结果 |
+| --- | --- |
+| `npm test`（单元 + 协议，mock bridge） | **73/73 通过**；tools/list 47.6 KB / 81 工具，compact 23.3 KB |
+| `UNITY_MCP_LIVE=1 node --test tests/live-knowledge.test.mjs` | **5/5 通过** |
+| `UNITY_MCP_LIVE=1 node --test tests/live-smoke.test.mjs`（原有基线） | **5/5 通过** |
+
+### 真实编辑器上的观察
+
+1. `unity_list_instances` 发现 `ab-unity6@7890`；`unity_editor_ping`、`unity_scene_info`
+   往返正常（`unityVersion=6000.3.13f1`）。
+2. **按指南驱动的调用序列真的改动了场景**：`unity_gameobject_create(LeeheisenProbe)`
+   → `unity_component_add(componentType="Rigidbody")` → `unity_component_get_properties`
+   回读得到 `m_Mass=1`（指南里 “addComponent 'Rigidbody'” 的示例照抄可用）。
+3. **失败注入有效**：对不存在的 GameObject 调用 `unity_component_add` 返回 `isError=true`，
+   响应里同时出现 `💡 Common causes` 与 `unity_knowledge(tool:"unity_component_add")`；
+   顺着该指针查询，返回的指南里确实含 `ERROR: 'GameObject not found'` 条目。
+4. `unity_knowledge(topic:"component_properties", query:"Rigidbody mass")` 命中 `mass` 属性说明。
+5. 探针对象在 `after()` 中删除，工程保持干净。
+
+### 实测新增工具的体积
+
+`unity_knowledge` 的 schema 为 775 字节（描述两行、属性各一行），是本能力的下限；
+55 条指南、76 个组件、15 个布局范式、16 个锚点预设、20 语言文案全部留在
+`src/data/xman88/`，只在调用时读取，从不进入 `tools/list`。
