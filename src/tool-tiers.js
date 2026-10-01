@@ -17,6 +17,7 @@
 import { sendCommand } from "./unity-editor-bridge.js";
 import { formatResult, firstSentence } from "./response-format.js";
 import { isUnknownRouteResult } from "./capabilities.js";
+import { createKnowledgeTool } from "./knowledge.js";
 
 /**
  * Explicit route overrides for tools whose API endpoints
@@ -210,10 +211,29 @@ function suggestSimilarTools(input, candidates) {
  * Also generates the meta-tools for accessing advanced tools.
  */
 export function splitToolTiers(allEditorTools) {
+  // ─── Optional category filter ───
+  // UNITY_MCP_DISABLED_CATEGORIES=terrain,amplify,uma drops those tools before any tier
+  // math, which shrinks both the exposed list and the unity_advanced_tool catalog.
+  const disabledCategories = new Set(
+    (process.env.UNITY_MCP_DISABLED_CATEGORIES || "")
+      .split(",")
+      .map((s) => s.trim().toLowerCase())
+      .filter(Boolean)
+  );
+  const categoryOf = (name) => name.replace(/^unity_/, "").split("_")[0];
+  const considered = disabledCategories.size
+    ? allEditorTools.filter((t) => !disabledCategories.has(categoryOf(t.name)))
+    : allEditorTools;
+  if (disabledCategories.size) {
+    console.error(
+      `[MCP] Category filter: dropped ${allEditorTools.length - considered.length} tool(s) from [${[...disabledCategories].join(", ")}]`
+    );
+  }
+
   const core = [];
   const advanced = [];
 
-  for (const tool of allEditorTools) {
+  for (const tool of considered) {
     if (CORE_TOOLS.has(tool.name)) {
       core.push(tool);
     } else {
@@ -515,7 +535,7 @@ export function splitToolTiers(allEditorTools) {
 
   return {
     coreTools: core,
-    metaTools: [catalogTool, advancedTool],
+    metaTools: [catalogTool, advancedTool, createKnowledgeTool()],
     advancedCount: advanced.length,
     coreCount: core.length,
   };

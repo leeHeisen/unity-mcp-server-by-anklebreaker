@@ -23,7 +23,7 @@ describe("splitToolTiers on the real tool set", () => {
 
   test("meta-tools are generated with strict-enough schemas", () => {
     const names = split.metaTools.map((t) => t.name);
-    assert.deepEqual(names, ["unity_list_advanced_tools", "unity_advanced_tool"]);
+    assert.deepEqual(names, ["unity_list_advanced_tools", "unity_advanced_tool", "unity_knowledge"]);
     for (const tool of split.metaTools) {
       assert.equal(tool.inputSchema.type, "object");
       assert.equal(typeof tool.handler, "function");

@@ -1,3946 +1,2998 @@
 {
  "components": {
   "RectTransform": {
-   "FullType": "UnityEngine.RectTransform",
-   "Category": "UI Core",
-   "Description": "Defines position, size, anchor, and pivot for UI elements. Auto-added to any child of a Canvas.",
-   "Properties": {
+   "fullType": "UnityEngine.RectTransform",
+   "category": "UI Core",
+   "description": "Defines position, size, anchor, and pivot for UI elements. Auto-added to any child of a Canvas.",
+   "properties": {
     "anchoredPosition": {
-     "__args__": [
-      "Vector2",
-      "Position relative to anchors. (0,0)=anchor point.",
-      "{x:0, y:0}"
-     ]
+     "type": "Vector2",
+     "description": "Position relative to anchors. (0,0)=anchor point.",
+     "default": "{x:0, y:0}"
     },
     "sizeDelta": {
-     "__args__": [
-      "Vector2",
-      "Size relative to anchor distance. For point-anchors this is the element size.",
-      "{x:100, y:100}"
-     ]
+     "type": "Vector2",
+     "description": "Size relative to anchor distance. For point-anchors this is the element size.",
+     "default": "{x:100, y:100}"
     },
     "anchorMin": {
-     "__args__": [
-      "Vector2",
-      "Lower-left anchor normalized (0-1). (0,0)=parent bottom-left.",
-      "{x:0.5, y:0.5}"
-     ]
+     "type": "Vector2",
+     "description": "Lower-left anchor normalized (0-1). (0,0)=parent bottom-left.",
+     "default": "{x:0.5, y:0.5}"
     },
     "anchorMax": {
-     "__args__": [
-      "Vector2",
-      "Upper-right anchor normalized (0-1). (1,1)=parent top-right.",
-      "{x:0.5, y:0.5}"
-     ]
+     "type": "Vector2",
+     "description": "Upper-right anchor normalized (0-1). (1,1)=parent top-right.",
+     "default": "{x:0.5, y:0.5}"
     },
     "pivot": {
-     "__args__": [
-      "Vector2",
-      "Pivot point normalized. (0.5,0.5)=center. Rotation/scale origin.",
-      "{x:0.5, y:0.5}"
-     ]
+     "type": "Vector2",
+     "description": "Pivot point normalized. (0.5,0.5)=center. Rotation/scale origin.",
+     "default": "{x:0.5, y:0.5}"
     },
     "offsetMin": {
-     "__args__": [
-      "Vector2",
-      "Offset of lower-left corner from anchored position.",
-      "{x:0, y:0}"
-     ]
+     "type": "Vector2",
+     "description": "Offset of lower-left corner from anchored position.",
+     "default": "{x:0, y:0}"
     },
     "offsetMax": {
-     "__args__": [
-      "Vector2",
-      "Offset of upper-right corner from anchored position.",
-      "{x:0, y:0}"
-     ]
+     "type": "Vector2",
+     "description": "Offset of upper-right corner from anchored position.",
+     "default": "{x:0, y:0}"
     },
     "localScale": {
-     "__args__": [
-      "Vector3",
-      "Local scale.",
-      "{x:1, y:1, z:1}"
-     ]
+     "type": "Vector3",
+     "description": "Local scale.",
+     "default": "{x:1, y:1, z:1}"
     }
    }
   },
   "Canvas": {
-   "FullType": "UnityEngine.Canvas",
-   "Category": "UI Core",
-   "Description": "Root component for UI rendering. Required for all UI elements. Usually one per scene.",
-   "Properties": {
+   "fullType": "UnityEngine.Canvas",
+   "category": "UI Core",
+   "description": "Root component for UI rendering. Required for all UI elements. Usually one per scene.",
+   "properties": {
     "renderMode": {
-     "__args__": [
-      "enum",
-      "ScreenSpaceOverlay (0), ScreenSpaceCamera (1), WorldSpace (2)",
-      "0"
-     ]
+     "type": "enum",
+     "description": "ScreenSpaceOverlay (0), ScreenSpaceCamera (1), WorldSpace (2)",
+     "default": "0"
     },
     "sortingOrder": {
-     "__args__": [
-      "int",
-      "Draw order among canvases.",
-      "0"
-     ]
+     "type": "int",
+     "description": "Draw order among canvases.",
+     "default": "0"
     },
     "pixelPerfect": {
-     "__args__": [
-      "bool",
-      "Snap elements to pixel grid.",
-      "false"
-     ]
+     "type": "bool",
+     "description": "Snap elements to pixel grid.",
+     "default": "false"
     },
     "overrideSorting": {
-     "__args__": [
-      "bool",
-      "Override parent canvas sorting.",
-      "false"
-     ]
+     "type": "bool",
+     "description": "Override parent canvas sorting.",
+     "default": "false"
     }
    }
   },
   "CanvasScaler": {
-   "FullType": "UnityEngine.UI.CanvasScaler",
-   "Category": "UI Core",
-   "Description": "Controls UI element scaling. Typically set to ScaleWithScreenSize with a reference resolution.",
-   "Properties": {
+   "fullType": "UnityEngine.UI.CanvasScaler",
+   "category": "UI Core",
+   "description": "Controls UI element scaling. Typically set to ScaleWithScreenSize with a reference resolution.",
+   "properties": {
     "uiScaleMode": {
-     "__args__": [
-      "enum",
-      "ConstantPixelSize (0), ScaleWithScreenSize (1), ConstantPhysicalSize (2)",
-      "0"
-     ]
+     "type": "enum",
+     "description": "ConstantPixelSize (0), ScaleWithScreenSize (1), ConstantPhysicalSize (2)",
+     "default": "0"
     },
     "referenceResolution": {
-     "__args__": [
-      "Vector2",
-      "Design resolution when using ScaleWithScreenSize.",
-      "{x:800, y:600}"
-     ]
+     "type": "Vector2",
+     "description": "Design resolution when using ScaleWithScreenSize.",
+     "default": "{x:800, y:600}"
     },
     "screenMatchMode": {
-     "__args__": [
-      "enum",
-      "MatchWidthOrHeight (0), Expand (1), Shrink (2)",
-      "0"
-     ]
+     "type": "enum",
+     "description": "MatchWidthOrHeight (0), Expand (1), Shrink (2)",
+     "default": "0"
     },
     "matchWidthOrHeight": {
-     "__args__": [
-      "float",
-      "0=match width, 1=match height, 0.5=balanced.",
-      "0"
-     ]
+     "type": "float",
+     "description": "0=match width, 1=match height, 0.5=balanced.",
+     "default": "0"
     },
     "referencePixelsPerUnit": {
-     "__args__": [
-      "float",
-      "Pixels per unit for sprites.",
-      "100"
-     ]
+     "type": "float",
+     "description": "Pixels per unit for sprites.",
+     "default": "100"
     },
     "scaleFactor": {
-     "__args__": [
-      "float",
-      "Scale factor for ConstantPixelSize mode.",
-      "1"
-     ]
+     "type": "float",
+     "description": "Scale factor for ConstantPixelSize mode.",
+     "default": "1"
     }
    }
   },
   "GraphicRaycaster": {
-   "FullType": "UnityEngine.UI.GraphicRaycaster",
-   "Category": "UI Core",
-   "Description": "Enables UI event detection (clicks, drags). Required on Canvas for interactive UI.",
-   "Properties": {
+   "fullType": "UnityEngine.UI.GraphicRaycaster",
+   "category": "UI Core",
+   "description": "Enables UI event detection (clicks, drags). Required on Canvas for interactive UI.",
+   "properties": {
     "ignoreReversedGraphics": {
-     "__args__": [
-      "bool",
-      "Ignore graphics facing away.",
-      "true"
-     ]
+     "type": "bool",
+     "description": "Ignore graphics facing away.",
+     "default": "true"
     },
     "blockingObjects": {
-     "__args__": [
-      "enum",
-      "None (0), TwoD (1), ThreeD (2), All (3)",
-      "0"
-     ]
+     "type": "enum",
+     "description": "None (0), TwoD (1), ThreeD (2), All (3)",
+     "default": "0"
     }
    }
   },
   "Image": {
-   "FullType": "UnityEngine.UI.Image",
-   "Category": "UI Visual",
-   "Description": "Displays a sprite image. Most common UI visual component. Supports Simple/Sliced/Tiled/Filled modes.",
-   "Properties": {
+   "fullType": "UnityEngine.UI.Image",
+   "category": "UI Visual",
+   "description": "Displays a sprite image. Most common UI visual component. Supports Simple/Sliced/Tiled/Filled modes.",
+   "properties": {
     "sprite": {
-     "__args__": [
-      "Sprite",
-      "Source sprite asset.",
-      "null"
-     ]
+     "type": "Sprite",
+     "description": "Source sprite asset.",
+     "default": "null"
     },
     "color": {
-     "__args__": [
-      "Color",
-      "Tint color. {r,g,b,a} range 0-1.",
-      "{r:1, g:1, b:1, a:1}"
-     ]
+     "type": "Color",
+     "description": "Tint color. {r,g,b,a} range 0-1.",
+     "default": "{r:1, g:1, b:1, a:1}"
     },
     "type": {
-     "__args__": [
-      "enum",
-      "Simple (0), Sliced (1), Tiled (2), Filled (3)",
-      "0"
-     ]
+     "type": "enum",
+     "description": "Simple (0), Sliced (1), Tiled (2), Filled (3)",
+     "default": "0"
     },
     "fillMethod": {
-     "__args__": [
-      "enum",
-      "Horizontal (0), Vertical (1), Radial90 (2), Radial180 (3), Radial360 (4)",
-      "4"
-     ]
+     "type": "enum",
+     "description": "Horizontal (0), Vertical (1), Radial90 (2), Radial180 (3), Radial360 (4)",
+     "default": "4"
     },
     "fillAmount": {
-     "__args__": [
-      "float",
-      "Fill amount for Filled type. 0-1.",
-      "1"
-     ]
+     "type": "float",
+     "description": "Fill amount for Filled type. 0-1.",
+     "default": "1"
     },
     "preserveAspect": {
-     "__args__": [
-      "bool",
-      "Preserve sprite aspect ratio.",
-      "false"
-     ]
+     "type": "bool",
+     "description": "Preserve sprite aspect ratio.",
+     "default": "false"
     },
     "raycastTarget": {
-     "__args__": [
-      "bool",
-      "Receive raycasts/clicks.",
-      "true"
-     ]
+     "type": "bool",
+     "description": "Receive raycasts/clicks.",
+     "default": "true"
     },
     "maskable": {
-     "__args__": [
-      "bool",
-      "Can be masked by parent Mask.",
-      "true"
-     ]
+     "type": "bool",
+     "description": "Can be masked by parent Mask.",
+     "default": "true"
     }
    }
   },
   "RawImage": {
-   "FullType": "UnityEngine.UI.RawImage",
-   "Category": "UI Visual",
-   "Description": "Displays a raw Texture2D. Use for non-sprite textures, render textures, or video frames.",
-   "Properties": {
+   "fullType": "UnityEngine.UI.RawImage",
+   "category": "UI Visual",
+   "description": "Displays a raw Texture2D. Use for non-sprite textures, render textures, or video frames.",
+   "properties": {
     "texture": {
-     "__args__": [
-      "Texture",
-      "Source texture.",
-      "null"
-     ]
+     "type": "Texture",
+     "description": "Source texture.",
+     "default": "null"
     },
     "color": {
-     "__args__": [
-      "Color",
-      "Tint color.",
-      "{r:1, g:1, b:1, a:1}"
-     ]
+     "type": "Color",
+     "description": "Tint color.",
+     "default": "{r:1, g:1, b:1, a:1}"
     },
     "uvRect": {
-     "__args__": [
-      "Rect",
-      "UV rectangle for texture mapping.",
-      "{x:0, y:0, w:1, h:1}"
-     ]
+     "type": "Rect",
+     "description": "UV rectangle for texture mapping.",
+     "default": "{x:0, y:0, w:1, h:1}"
     },
     "raycastTarget": {
-     "__args__": [
-      "bool",
-      "Receive raycasts.",
-      "true"
-     ]
+     "type": "bool",
+     "description": "Receive raycasts.",
+     "default": "true"
     }
    }
   },
   "Text": {
-   "FullType": "UnityEngine.UI.Text",
-   "Category": "UI Visual",
-   "Description": "Legacy text component. Consider TextMeshProUGUI for better quality. Displays plain text.",
-   "Properties": {
+   "fullType": "UnityEngine.UI.Text",
+   "category": "UI Visual",
+   "description": "Legacy text component. Consider TextMeshProUGUI for better quality. Displays plain text.",
+   "properties": {
     "text": {
-     "__args__": [
-      "string",
-      "Displayed text content.",
-      "\"New Text\""
-     ]
+     "type": "string",
+     "description": "Displayed text content.",
+     "default": "\"New Text\""
     },
     "font": {
-     "__args__": [
-      "Font",
-      "Font asset. Default is Arial.",
-      "Arial"
-     ]
+     "type": "Font",
+     "description": "Font asset. Default is Arial.",
+     "default": "Arial"
     },
     "fontSize": {
-     "__args__": [
-      "int",
-      "Font size in pixels.",
-      "14"
-     ]
+     "type": "int",
+     "description": "Font size in pixels.",
+     "default": "14"
     },
     "fontStyle": {
-     "__args__": [
-      "enum",
-      "Normal (0), Bold (1), Italic (2), BoldAndItalic (3)",
-      "0"
-     ]
+     "type": "enum",
+     "description": "Normal (0), Bold (1), Italic (2), BoldAndItalic (3)",
+     "default": "0"
     },
     "alignment": {
-     "__args__": [
-      "enum",
-      "UpperLeft(0), UpperCenter(1), UpperRight(2), MiddleLeft(3), MiddleCenter(4), MiddleRight(5), LowerLeft(6), LowerCenter(7), LowerRight(8)",
-      "0"
-     ]
+     "type": "enum",
+     "description": "UpperLeft(0), UpperCenter(1), UpperRight(2), MiddleLeft(3), MiddleCenter(4), MiddleRight(5), LowerLeft(6), LowerCenter(7), LowerRight(8)",
+     "default": "0"
     },
     "color": {
-     "__args__": [
-      "Color",
-      "Text color.",
-      "{r:0.2, g:0.2, b:0.2, a:1}"
-     ]
+     "type": "Color",
+     "description": "Text color.",
+     "default": "{r:0.2, g:0.2, b:0.2, a:1}"
     },
     "horizontalOverflow": {
-     "__args__": [
-      "enum",
-      "Wrap (0), Overflow (1)",
-      "0"
-     ]
+     "type": "enum",
+     "description": "Wrap (0), Overflow (1)",
+     "default": "0"
     },
     "verticalOverflow": {
-     "__args__": [
-      "enum",
-      "Truncate (0), Overflow (1)",
-      "0"
-     ]
+     "type": "enum",
+     "description": "Truncate (0), Overflow (1)",
+     "default": "0"
     },
     "bestFit": {
-     "__args__": [
-      "bool",
-      "Auto-resize text to fit.",
-      "false"
-     ]
+     "type": "bool",
+     "description": "Auto-resize text to fit.",
+     "default": "false"
     },
     "raycastTarget": {
-     "__args__": [
-      "bool",
-      "Receive raycasts.",
-      "true"
-     ]
+     "type": "bool",
+     "description": "Receive raycasts.",
+     "default": "true"
     },
     "lineSpacing": {
-     "__args__": [
-      "float",
-      "Line spacing multiplier.",
-      "1"
-     ]
+     "type": "float",
+     "description": "Line spacing multiplier.",
+     "default": "1"
     }
    }
   },
   "TextMeshProUGUI": {
-   "FullType": "TMPro.TextMeshProUGUI",
-   "Category": "UI Visual",
-   "Description": "High-quality text rendering (TextMeshPro). Recommended over legacy Text. Requires TMP package.",
-   "Properties": {
+   "fullType": "TMPro.TextMeshProUGUI",
+   "category": "UI Visual",
+   "description": "High-quality text rendering (TextMeshPro). Recommended over legacy Text. Requires TMP package.",
+   "properties": {
     "text": {
-     "__args__": [
-      "string",
-      "Displayed text content.",
-      "\"New Text\""
-     ]
+     "type": "string",
+     "description": "Displayed text content.",
+     "default": "\"New Text\""
     },
     "fontSize": {
-     "__args__": [
-      "float",
-      "Font size.",
-      "36"
-     ]
+     "type": "float",
+     "description": "Font size.",
+     "default": "36"
     },
     "fontStyle": {
-     "__args__": [
-      "enum",
-      "Normal, Bold, Italic, Underline, Strikethrough (flags)",
-      "Normal"
-     ]
+     "type": "enum",
+     "description": "Normal, Bold, Italic, Underline, Strikethrough (flags)",
+     "default": "Normal"
     },
     "alignment": {
-     "__args__": [
-      "enum",
-      "TopLeft, Top, TopRight, Left, Center, Right, BottomLeft, Bottom, BottomRight, etc.",
-      "TopLeft"
-     ]
+     "type": "enum",
+     "description": "TopLeft, Top, TopRight, Left, Center, Right, BottomLeft, Bottom, BottomRight, etc.",
+     "default": "TopLeft"
     },
     "color": {
-     "__args__": [
-      "Color",
-      "Vertex color.",
-      "{r:1, g:1, b:1, a:1}"
-     ]
+     "type": "Color",
+     "description": "Vertex color.",
+     "default": "{r:1, g:1, b:1, a:1}"
     },
     "enableWordWrapping": {
-     "__args__": [
-      "bool",
-      "Enable word wrapping.",
-      "true"
-     ]
+     "type": "bool",
+     "description": "Enable word wrapping.",
+     "default": "true"
     },
     "overflowMode": {
-     "__args__": [
-      "enum",
-      "Overflow (0), Ellipsis (1), Masking (2), Truncate (3), ScrollRect (4), Page (5)",
-      "0"
-     ]
+     "type": "enum",
+     "description": "Overflow (0), Ellipsis (1), Masking (2), Truncate (3), ScrollRect (4), Page (5)",
+     "default": "0"
     },
     "characterSpacing": {
-     "__args__": [
-      "float",
-      "Character spacing adjustment.",
-      "0"
-     ]
+     "type": "float",
+     "description": "Character spacing adjustment.",
+     "default": "0"
     },
     "lineSpacing": {
-     "__args__": [
-      "float",
-      "Line spacing adjustment.",
-      "0"
-     ]
+     "type": "float",
+     "description": "Line spacing adjustment.",
+     "default": "0"
     },
     "paragraphSpacing": {
-     "__args__": [
-      "float",
-      "Paragraph spacing.",
-      "0"
-     ]
+     "type": "float",
+     "description": "Paragraph spacing.",
+     "default": "0"
     },
     "raycastTarget": {
-     "__args__": [
-      "bool",
-      "Receive raycasts.",
-      "true"
-     ]
+     "type": "bool",
+     "description": "Receive raycasts.",
+     "default": "true"
     },
     "richText": {
-     "__args__": [
-      "bool",
-      "Enable rich text tags.",
-      "true"
-     ]
+     "type": "bool",
+     "description": "Enable rich text tags.",
+     "default": "true"
     }
    }
   },
   "Button": {
-   "FullType": "UnityEngine.UI.Button",
-   "Category": "UI Interactive",
-   "Description": "Clickable button. Requires a Graphic component (Image) on same or child object for visuals.",
-   "Properties": {
+   "fullType": "UnityEngine.UI.Button",
+   "category": "UI Interactive",
+   "description": "Clickable button. Requires a Graphic component (Image) on same or child object for visuals.",
+   "properties": {
     "interactable": {
-     "__args__": [
-      "bool",
-      "Can be clicked.",
-      "true"
-     ]
+     "type": "bool",
+     "description": "Can be clicked.",
+     "default": "true"
     },
     "transition": {
-     "__args__": [
-      "enum",
-      "None (0), ColorTint (1), SpriteSwap (2), Animation (3)",
-      "1"
-     ]
+     "type": "enum",
+     "description": "None (0), ColorTint (1), SpriteSwap (2), Animation (3)",
+     "default": "1"
     },
     "navigation": {
-     "__args__": [
-      "Navigation",
-      "Keyboard/gamepad navigation settings.",
-      "Automatic"
-     ]
+     "type": "Navigation",
+     "description": "Keyboard/gamepad navigation settings.",
+     "default": "Automatic"
     }
    }
   },
   "Toggle": {
-   "FullType": "UnityEngine.UI.Toggle",
-   "Category": "UI Interactive",
-   "Description": "Checkbox/toggle component. Use ToggleGroup for radio-button behavior.",
-   "Properties": {
+   "fullType": "UnityEngine.UI.Toggle",
+   "category": "UI Interactive",
+   "description": "Checkbox/toggle component. Use ToggleGroup for radio-button behavior.",
+   "properties": {
     "isOn": {
-     "__args__": [
-      "bool",
-      "Current toggle state.",
-      "true"
-     ]
+     "type": "bool",
+     "description": "Current toggle state.",
+     "default": "true"
     },
     "interactable": {
-     "__args__": [
-      "bool",
-      "Can be toggled.",
-      "true"
-     ]
+     "type": "bool",
+     "description": "Can be toggled.",
+     "default": "true"
     },
     "transition": {
-     "__args__": [
-      "enum",
-      "None (0), ColorTint (1), SpriteSwap (2), Animation (3)",
-      "1"
-     ]
+     "type": "enum",
+     "description": "None (0), ColorTint (1), SpriteSwap (2), Animation (3)",
+     "default": "1"
     },
     "graphic": {
-     "__args__": [
-      "Graphic",
-      "Checkmark graphic to show/hide.",
-      "null"
-     ]
+     "type": "Graphic",
+     "description": "Checkmark graphic to show/hide.",
+     "default": "null"
     },
     "group": {
-     "__args__": [
-      "ToggleGroup",
-      "Optional group for radio behavior.",
-      "null"
-     ]
+     "type": "ToggleGroup",
+     "description": "Optional group for radio behavior.",
+     "default": "null"
     }
    }
   },
   "Slider": {
-   "FullType": "UnityEngine.UI.Slider",
-   "Category": "UI Interactive",
-   "Description": "Draggable slider for numeric value selection.",
-   "Properties": {
+   "fullType": "UnityEngine.UI.Slider",
+   "category": "UI Interactive",
+   "description": "Draggable slider for numeric value selection.",
+   "properties": {
     "value": {
-     "__args__": [
-      "float",
-      "Current value.",
-      "0"
-     ]
+     "type": "float",
+     "description": "Current value.",
+     "default": "0"
     },
     "minValue": {
-     "__args__": [
-      "float",
-      "Minimum value.",
-      "0"
-     ]
+     "type": "float",
+     "description": "Minimum value.",
+     "default": "0"
     },
     "maxValue": {
-     "__args__": [
-      "float",
-      "Maximum value.",
-      "1"
-     ]
+     "type": "float",
+     "description": "Maximum value.",
+     "default": "1"
     },
     "wholeNumbers": {
-     "__args__": [
-      "bool",
-      "Snap to integers.",
-      "false"
-     ]
+     "type": "bool",
+     "description": "Snap to integers.",
+     "default": "false"
     },
     "direction": {
-     "__args__": [
-      "enum",
-      "LeftToRight (0), RightToLeft (1), BottomToTop (2), TopToBottom (3)",
-      "0"
-     ]
+     "type": "enum",
+     "description": "LeftToRight (0), RightToLeft (1), BottomToTop (2), TopToBottom (3)",
+     "default": "0"
     },
     "interactable": {
-     "__args__": [
-      "bool",
-      "Can be dragged.",
-      "true"
-     ]
+     "type": "bool",
+     "description": "Can be dragged.",
+     "default": "true"
     }
    }
   },
   "ScrollRect": {
-   "FullType": "UnityEngine.UI.ScrollRect",
-   "Category": "UI Interactive",
-   "Description": "Scrollable container. Requires a content RectTransform child and optional viewport with Mask.",
-   "Properties": {
+   "fullType": "UnityEngine.UI.ScrollRect",
+   "category": "UI Interactive",
+   "description": "Scrollable container. Requires a content RectTransform child and optional viewport with Mask.",
+   "properties": {
     "content": {
-     "__args__": [
-      "RectTransform",
-      "The content to scroll.",
-      "null"
-     ]
+     "type": "RectTransform",
+     "description": "The content to scroll.",
+     "default": "null"
     },
     "viewport": {
-     "__args__": [
-      "RectTransform",
-      "Optional viewport with Mask.",
-      "null"
-     ]
+     "type": "RectTransform",
+     "description": "Optional viewport with Mask.",
+     "default": "null"
     },
     "horizontal": {
-     "__args__": [
-      "bool",
-      "Enable horizontal scrolling.",
-      "true"
-     ]
+     "type": "bool",
+     "description": "Enable horizontal scrolling.",
+     "default": "true"
     },
     "vertical": {
-     "__args__": [
-      "bool",
-      "Enable vertical scrolling.",
-      "true"
-     ]
+     "type": "bool",
+     "description": "Enable vertical scrolling.",
+     "default": "true"
     },
     "movementType": {
-     "__args__": [
-      "enum",
-      "Unrestricted (0), Elastic (1), Clamped (2)",
-      "1"
-     ]
+     "type": "enum",
+     "description": "Unrestricted (0), Elastic (1), Clamped (2)",
+     "default": "1"
     },
     "elasticity": {
-     "__args__": [
-      "float",
-      "Elastic bounce amount.",
-      "0.1"
-     ]
+     "type": "float",
+     "description": "Elastic bounce amount.",
+     "default": "0.1"
     },
     "inertia": {
-     "__args__": [
-      "bool",
-      "Continue moving after release.",
-      "true"
-     ]
+     "type": "bool",
+     "description": "Continue moving after release.",
+     "default": "true"
     },
     "decelerationRate": {
-     "__args__": [
-      "float",
-      "Deceleration rate. 0=instant stop.",
-      "0.135"
-     ]
+     "type": "float",
+     "description": "Deceleration rate. 0=instant stop.",
+     "default": "0.135"
     },
     "scrollSensitivity": {
-     "__args__": [
-      "float",
-      "Scroll wheel sensitivity.",
-      "1"
-     ]
+     "type": "float",
+     "description": "Scroll wheel sensitivity.",
+     "default": "1"
     }
    }
   },
   "InputField": {
-   "FullType": "UnityEngine.UI.InputField",
-   "Category": "UI Interactive",
-   "Description": "Legacy text input field. Consider TMP_InputField for better quality.",
-   "Properties": {
+   "fullType": "UnityEngine.UI.InputField",
+   "category": "UI Interactive",
+   "description": "Legacy text input field. Consider TMP_InputField for better quality.",
+   "properties": {
     "text": {
-     "__args__": [
-      "string",
-      "Current input text.",
-      "\"\""
-     ]
+     "type": "string",
+     "description": "Current input text.",
+     "default": "\"\""
     },
     "characterLimit": {
-     "__args__": [
-      "int",
-      "Max characters. 0=unlimited.",
-      "0"
-     ]
+     "type": "int",
+     "description": "Max characters. 0=unlimited.",
+     "default": "0"
     },
     "contentType": {
-     "__args__": [
-      "enum",
-      "Standard(0), Autocorrected(1), IntegerNumber(2), DecimalNumber(3), Alphanumeric(4), Name(5), EmailAddress(6), Password(7), Pin(8), Custom(9)",
-      "0"
-     ]
+     "type": "enum",
+     "description": "Standard(0), Autocorrected(1), IntegerNumber(2), DecimalNumber(3), Alphanumeric(4), Name(5), EmailAddress(6), Password(7), Pin(8), Custom(9)",
+     "default": "0"
     },
     "lineType": {
-     "__args__": [
-      "enum",
-      "SingleLine (0), MultiLineSubmit (1), MultiLineNewline (2)",
-      "0"
-     ]
+     "type": "enum",
+     "description": "SingleLine (0), MultiLineSubmit (1), MultiLineNewline (2)",
+     "default": "0"
     },
     "placeholder": {
-     "__args__": [
-      "Graphic",
-      "Placeholder text component.",
-      "null"
-     ]
+     "type": "Graphic",
+     "description": "Placeholder text component.",
+     "default": "null"
     },
     "caretBlinkRate": {
-     "__args__": [
-      "float",
-      "Caret blink speed.",
-      "0.85"
-     ]
+     "type": "float",
+     "description": "Caret blink speed.",
+     "default": "0.85"
     },
     "selectionColor": {
-     "__args__": [
-      "Color",
-      "Selection highlight color.",
-      "{r:0.66, g:0.81, b:1, a:0.75}"
-     ]
+     "type": "Color",
+     "description": "Selection highlight color.",
+     "default": "{r:0.66, g:0.81, b:1, a:0.75}"
     }
    }
   },
   "Dropdown": {
-   "FullType": "UnityEngine.UI.Dropdown",
-   "Category": "UI Interactive",
-   "Description": "Drop-down list selection control.",
-   "Properties": {
+   "fullType": "UnityEngine.UI.Dropdown",
+   "category": "UI Interactive",
+   "description": "Drop-down list selection control.",
+   "properties": {
     "value": {
-     "__args__": [
-      "int",
-      "Selected option index.",
-      "0"
-     ]
+     "type": "int",
+     "description": "Selected option index.",
+     "default": "0"
     },
     "options": {
-     "__args__": [
-      "List<OptionData>",
-      "List of options. Set via script.",
-      "[]"
-     ]
+     "type": "List<OptionData>",
+     "description": "List of options. Set via script.",
+     "default": "[]"
     },
     "interactable": {
-     "__args__": [
-      "bool",
-      "Can be interacted with.",
-      "true"
-     ]
+     "type": "bool",
+     "description": "Can be interacted with.",
+     "default": "true"
     },
     "captionText": {
-     "__args__": [
-      "Text",
-      "Text component for selected option display.",
-      "null"
-     ]
+     "type": "Text",
+     "description": "Text component for selected option display.",
+     "default": "null"
     },
     "template": {
-     "__args__": [
-      "RectTransform",
-      "Template for dropdown list.",
-      "null"
-     ]
+     "type": "RectTransform",
+     "description": "Template for dropdown list.",
+     "default": "null"
     }
    }
   },
   "VerticalLayoutGroup": {
-   "FullType": "UnityEngine.UI.VerticalLayoutGroup",
-   "Category": "UI Layout",
-   "Description": "Arranges children vertically (top to bottom). Auto-positions and optionally auto-sizes children.",
-   "Properties": {
+   "fullType": "UnityEngine.UI.VerticalLayoutGroup",
+   "category": "UI Layout",
+   "description": "Arranges children vertically (top to bottom). Auto-positions and optionally auto-sizes children.",
+   "properties": {
     "padding": {
-     "__args__": [
-      "RectOffset",
-      "Padding inside the layout. {left, right, top, bottom}.",
-      "{left:0, right:0, top:0, bottom:0}"
-     ]
+     "type": "RectOffset",
+     "description": "Padding inside the layout. {left, right, top, bottom}.",
+     "default": "{left:0, right:0, top:0, bottom:0}"
     },
     "spacing": {
-     "__args__": [
-      "float",
-      "Spacing between children.",
-      "0"
-     ]
+     "type": "float",
+     "description": "Spacing between children.",
+     "default": "0"
     },
     "childAlignment": {
-     "__args__": [
-      "enum",
-      "UpperLeft(0), UpperCenter(1), UpperRight(2), MiddleLeft(3), MiddleCenter(4), MiddleRight(5), LowerLeft(6), LowerCenter(7), LowerRight(8)",
-      "0"
-     ]
+     "type": "enum",
+     "description": "UpperLeft(0), UpperCenter(1), UpperRight(2), MiddleLeft(3), MiddleCenter(4), MiddleRight(5), LowerLeft(6), LowerCenter(7), LowerRight(8)",
+     "default": "0"
     },
     "childControlWidth": {
-     "__args__": [
-      "bool",
-      "Control child width via LayoutElement.",
-      "true"
-     ]
+     "type": "bool",
+     "description": "Control child width via LayoutElement.",
+     "default": "true"
     },
     "childControlHeight": {
-     "__args__": [
-      "bool",
-      "Control child height via LayoutElement.",
-      "true"
-     ]
+     "type": "bool",
+     "description": "Control child height via LayoutElement.",
+     "default": "true"
     },
     "childForceExpandWidth": {
-     "__args__": [
-      "bool",
-      "Force children to expand width.",
-      "true"
-     ]
+     "type": "bool",
+     "description": "Force children to expand width.",
+     "default": "true"
     },
     "childForceExpandHeight": {
-     "__args__": [
-      "bool",
-      "Force children to expand height.",
-      "true"
-     ]
+     "type": "bool",
+     "description": "Force children to expand height.",
+     "default": "true"
     },
     "childScaleWidth": {
-     "__args__": [
-      "bool",
-      "Scale affects width calculation.",
-      "false"
-     ]
+     "type": "bool",
+     "description": "Scale affects width calculation.",
+     "default": "false"
     },
     "childScaleHeight": {
-     "__args__": [
-      "bool",
-      "Scale affects height calculation.",
-      "false"
-     ]
+     "type": "bool",
+     "description": "Scale affects height calculation.",
+     "default": "false"
     },
     "reverseArrangement": {
-     "__args__": [
-      "bool",
-      "Reverse child order.",
-      "false"
-     ]
+     "type": "bool",
+     "description": "Reverse child order.",
+     "default": "false"
     }
    }
   },
   "HorizontalLayoutGroup": {
-   "FullType": "UnityEngine.UI.HorizontalLayoutGroup",
-   "Category": "UI Layout",
-   "Description": "Arranges children horizontally (left to right). Same properties as VerticalLayoutGroup.",
-   "Properties": {
+   "fullType": "UnityEngine.UI.HorizontalLayoutGroup",
+   "category": "UI Layout",
+   "description": "Arranges children horizontally (left to right). Same properties as VerticalLayoutGroup.",
+   "properties": {
     "padding": {
-     "__args__": [
-      "RectOffset",
-      "Padding.",
-      "{left:0, right:0, top:0, bottom:0}"
-     ]
+     "type": "RectOffset",
+     "description": "Padding.",
+     "default": "{left:0, right:0, top:0, bottom:0}"
     },
     "spacing": {
-     "__args__": [
-      "float",
-      "Spacing between children.",
-      "0"
-     ]
+     "type": "float",
+     "description": "Spacing between children.",
+     "default": "0"
     },
     "childAlignment": {
-     "__args__": [
-      "enum",
-      "UpperLeft(0)...LowerRight(8)",
-      "0"
-     ]
+     "type": "enum",
+     "description": "UpperLeft(0)...LowerRight(8)",
+     "default": "0"
     },
     "childControlWidth": {
-     "__args__": [
-      "bool",
-      "Control child width.",
-      "true"
-     ]
+     "type": "bool",
+     "description": "Control child width.",
+     "default": "true"
     },
     "childControlHeight": {
-     "__args__": [
-      "bool",
-      "Control child height.",
-      "true"
-     ]
+     "type": "bool",
+     "description": "Control child height.",
+     "default": "true"
     },
     "childForceExpandWidth": {
-     "__args__": [
-      "bool",
-      "Force expand width.",
-      "true"
-     ]
+     "type": "bool",
+     "description": "Force expand width.",
+     "default": "true"
     },
     "childForceExpandHeight": {
-     "__args__": [
-      "bool",
-      "Force expand height.",
-      "true"
-     ]
+     "type": "bool",
+     "description": "Force expand height.",
+     "default": "true"
     },
     "reverseArrangement": {
-     "__args__": [
-      "bool",
-      "Reverse child order.",
-      "false"
-     ]
+     "type": "bool",
+     "description": "Reverse child order.",
+     "default": "false"
     }
    }
   },
   "GridLayoutGroup": {
-   "FullType": "UnityEngine.UI.GridLayoutGroup",
-   "Category": "UI Layout",
-   "Description": "Arranges children in a grid pattern.",
-   "Properties": {
+   "fullType": "UnityEngine.UI.GridLayoutGroup",
+   "category": "UI Layout",
+   "description": "Arranges children in a grid pattern.",
+   "properties": {
     "padding": {
-     "__args__": [
-      "RectOffset",
-      "Padding.",
-      "{left:0, right:0, top:0, bottom:0}"
-     ]
+     "type": "RectOffset",
+     "description": "Padding.",
+     "default": "{left:0, right:0, top:0, bottom:0}"
     },
     "cellSize": {
-     "__args__": [
-      "Vector2",
-      "Fixed size for each cell.",
-      "{x:100, y:100}"
-     ]
+     "type": "Vector2",
+     "description": "Fixed size for each cell.",
+     "default": "{x:100, y:100}"
     },
     "spacing": {
-     "__args__": [
-      "Vector2",
-      "Spacing between cells.",
-      "{x:0, y:0}"
-     ]
+     "type": "Vector2",
+     "description": "Spacing between cells.",
+     "default": "{x:0, y:0}"
     },
     "startCorner": {
-     "__args__": [
-      "enum",
-      "UpperLeft (0), UpperRight (1), LowerLeft (2), LowerRight (3)",
-      "0"
-     ]
+     "type": "enum",
+     "description": "UpperLeft (0), UpperRight (1), LowerLeft (2), LowerRight (3)",
+     "default": "0"
     },
     "startAxis": {
-     "__args__": [
-      "enum",
-      "Horizontal (0), Vertical (1)",
-      "0"
-     ]
+     "type": "enum",
+     "description": "Horizontal (0), Vertical (1)",
+     "default": "0"
     },
     "childAlignment": {
-     "__args__": [
-      "enum",
-      "UpperLeft(0)...LowerRight(8)",
-      "0"
-     ]
+     "type": "enum",
+     "description": "UpperLeft(0)...LowerRight(8)",
+     "default": "0"
     },
     "constraint": {
-     "__args__": [
-      "enum",
-      "Flexible (0), FixedColumnCount (1), FixedRowCount (2)",
-      "0"
-     ]
+     "type": "enum",
+     "description": "Flexible (0), FixedColumnCount (1), FixedRowCount (2)",
+     "default": "0"
     },
     "constraintCount": {
-     "__args__": [
-      "int",
-      "Column/row count when using constraint.",
-      "2"
-     ]
+     "type": "int",
+     "description": "Column/row count when using constraint.",
+     "default": "2"
     }
    }
   },
   "ContentSizeFitter": {
-   "FullType": "UnityEngine.UI.ContentSizeFitter",
-   "Category": "UI Layout",
-   "Description": "Auto-sizes RectTransform based on content (LayoutElement or child layout).",
-   "Properties": {
+   "fullType": "UnityEngine.UI.ContentSizeFitter",
+   "category": "UI Layout",
+   "description": "Auto-sizes RectTransform based on content (LayoutElement or child layout).",
+   "properties": {
     "horizontalFit": {
-     "__args__": [
-      "enum",
-      "Unconstrained (0), MinSize (1), PreferredSize (2)",
-      "0"
-     ]
+     "type": "enum",
+     "description": "Unconstrained (0), MinSize (1), PreferredSize (2)",
+     "default": "0"
     },
     "verticalFit": {
-     "__args__": [
-      "enum",
-      "Unconstrained (0), MinSize (1), PreferredSize (2)",
-      "0"
-     ]
+     "type": "enum",
+     "description": "Unconstrained (0), MinSize (1), PreferredSize (2)",
+     "default": "0"
     }
    }
   },
   "LayoutElement": {
-   "FullType": "UnityEngine.UI.LayoutElement",
-   "Category": "UI Layout",
-   "Description": "Provides layout properties for LayoutGroup children. Controls min/preferred/flexible sizes.",
-   "Properties": {
+   "fullType": "UnityEngine.UI.LayoutElement",
+   "category": "UI Layout",
+   "description": "Provides layout properties for LayoutGroup children. Controls min/preferred/flexible sizes.",
+   "properties": {
     "ignoreLayout": {
-     "__args__": [
-      "bool",
-      "Exclude from layout calculations.",
-      "false"
-     ]
+     "type": "bool",
+     "description": "Exclude from layout calculations.",
+     "default": "false"
     },
     "minWidth": {
-     "__args__": [
-      "float",
-      "Minimum width. -1=no min.",
-      "-1"
-     ]
+     "type": "float",
+     "description": "Minimum width. -1=no min.",
+     "default": "-1"
     },
     "minHeight": {
-     "__args__": [
-      "float",
-      "Minimum height. -1=no min.",
-      "-1"
-     ]
+     "type": "float",
+     "description": "Minimum height. -1=no min.",
+     "default": "-1"
     },
     "preferredWidth": {
-     "__args__": [
-      "float",
-      "Preferred width. -1=no preference.",
-      "-1"
-     ]
+     "type": "float",
+     "description": "Preferred width. -1=no preference.",
+     "default": "-1"
     },
     "preferredHeight": {
-     "__args__": [
-      "float",
-      "Preferred height. -1=no preference.",
-      "-1"
-     ]
+     "type": "float",
+     "description": "Preferred height. -1=no preference.",
+     "default": "-1"
     },
     "flexibleWidth": {
-     "__args__": [
-      "float",
-      "Flexible width ratio. -1=no flex.",
-      "-1"
-     ]
+     "type": "float",
+     "description": "Flexible width ratio. -1=no flex.",
+     "default": "-1"
     },
     "flexibleHeight": {
-     "__args__": [
-      "float",
-      "Flexible height ratio. -1=no flex.",
-      "-1"
-     ]
+     "type": "float",
+     "description": "Flexible height ratio. -1=no flex.",
+     "default": "-1"
     },
     "layoutPriority": {
-     "__args__": [
-      "int",
-      "Layout priority. Higher wins.",
-      "1"
-     ]
+     "type": "int",
+     "description": "Layout priority. Higher wins.",
+     "default": "1"
     }
    }
   },
   "Mask": {
-   "FullType": "UnityEngine.UI.Mask",
-   "Category": "UI Layout",
-   "Description": "Clips children to parent Image shape. Requires Image component on same object.",
-   "Properties": {
+   "fullType": "UnityEngine.UI.Mask",
+   "category": "UI Layout",
+   "description": "Clips children to parent Image shape. Requires Image component on same object.",
+   "properties": {
     "showMaskGraphic": {
-     "__args__": [
-      "bool",
-      "Show the mask graphic itself.",
-      "true"
-     ]
+     "type": "bool",
+     "description": "Show the mask graphic itself.",
+     "default": "true"
     }
    }
   },
   "RectMask2D": {
-   "FullType": "UnityEngine.UI.RectMask2D",
-   "Category": "UI Layout",
-   "Description": "Rectangular clipping mask. More efficient than Mask. No Image component needed.",
-   "Properties": {
+   "fullType": "UnityEngine.UI.RectMask2D",
+   "category": "UI Layout",
+   "description": "Rectangular clipping mask. More efficient than Mask. No Image component needed.",
+   "properties": {
     "padding": {
-     "__args__": [
-      "Vector4",
-      "Padding for the mask rectangle.",
-      "{x:0,y:0,z:0,w:0}"
-     ]
+     "type": "Vector4",
+     "description": "Padding for the mask rectangle.",
+     "default": "{x:0,y:0,z:0,w:0}"
     }
    }
   },
   "Transform": {
-   "FullType": "UnityEngine.Transform",
-   "Category": "Core",
-   "Description": "Every GameObject has a Transform. Position, rotation, and scale in 3D space.",
-   "Properties": {
+   "fullType": "UnityEngine.Transform",
+   "category": "Core",
+   "description": "Every GameObject has a Transform. Position, rotation, and scale in 3D space.",
+   "properties": {
     "position": {
-     "__args__": [
-      "Vector3",
-      "World position.",
-      "{x:0, y:0, z:0}"
-     ]
+     "type": "Vector3",
+     "description": "World position.",
+     "default": "{x:0, y:0, z:0}"
     },
     "localPosition": {
-     "__args__": [
-      "Vector3",
-      "Local position relative to parent.",
-      "{x:0, y:0, z:0}"
-     ]
+     "type": "Vector3",
+     "description": "Local position relative to parent.",
+     "default": "{x:0, y:0, z:0}"
     },
     "eulerAngles": {
-     "__args__": [
-      "Vector3",
-      "World rotation in degrees.",
-      "{x:0, y:0, z:0}"
-     ]
+     "type": "Vector3",
+     "description": "World rotation in degrees.",
+     "default": "{x:0, y:0, z:0}"
     },
     "localEulerAngles": {
-     "__args__": [
-      "Vector3",
-      "Local rotation in degrees.",
-      "{x:0, y:0, z:0}"
-     ]
+     "type": "Vector3",
+     "description": "Local rotation in degrees.",
+     "default": "{x:0, y:0, z:0}"
     },
     "localScale": {
-     "__args__": [
-      "Vector3",
-      "Local scale.",
-      "{x:1, y:1, z:1}"
-     ]
+     "type": "Vector3",
+     "description": "Local scale.",
+     "default": "{x:1, y:1, z:1}"
     }
    }
   },
   "Rigidbody": {
-   "FullType": "UnityEngine.Rigidbody",
-   "Category": "Physics",
-   "Description": "3D physics body. Enables gravity, forces, and collisions.",
-   "Properties": {
+   "fullType": "UnityEngine.Rigidbody",
+   "category": "Physics",
+   "description": "3D physics body. Enables gravity, forces, and collisions.",
+   "properties": {
     "mass": {
-     "__args__": [
-      "float",
-      "Mass in kg.",
-      "1"
-     ]
+     "type": "float",
+     "description": "Mass in kg.",
+     "default": "1"
     },
     "drag": {
-     "__args__": [
-      "float",
-      "Air resistance.",
-      "0"
-     ]
+     "type": "float",
+     "description": "Air resistance.",
+     "default": "0"
     },
     "angularDrag": {
-     "__args__": [
-      "float",
-      "Angular air resistance.",
-      "0.05"
-     ]
+     "type": "float",
+     "description": "Angular air resistance.",
+     "default": "0.05"
     },
     "useGravity": {
-     "__args__": [
-      "bool",
-      "Apply gravity.",
-      "true"
-     ]
+     "type": "bool",
+     "description": "Apply gravity.",
+     "default": "true"
     },
     "isKinematic": {
-     "__args__": [
-      "bool",
-      "Not affected by physics forces.",
-      "false"
-     ]
+     "type": "bool",
+     "description": "Not affected by physics forces.",
+     "default": "false"
     },
     "interpolation": {
-     "__args__": [
-      "enum",
-      "None (0), Interpolate (1), Extrapolate (2)",
-      "0"
-     ]
+     "type": "enum",
+     "description": "None (0), Interpolate (1), Extrapolate (2)",
+     "default": "0"
     },
     "collisionDetectionMode": {
-     "__args__": [
-      "enum",
-      "Discrete (0), Continuous (1), ContinuousDynamic (2), ContinuousSpeculative (3)",
-      "0"
-     ]
+     "type": "enum",
+     "description": "Discrete (0), Continuous (1), ContinuousDynamic (2), ContinuousSpeculative (3)",
+     "default": "0"
     },
     "constraints": {
-     "__args__": [
-      "flags",
-      "Freeze position/rotation axes. FreezePositionX=2, Y=4, Z=8, RotX=16, RotY=32, RotZ=64",
-      "0"
-     ]
+     "type": "flags",
+     "description": "Freeze position/rotation axes. FreezePositionX=2, Y=4, Z=8, RotX=16, RotY=32, RotZ=64",
+     "default": "0"
     }
    }
   },
   "BoxCollider": {
-   "FullType": "UnityEngine.BoxCollider",
-   "Category": "Physics",
-   "Description": "Box-shaped collision volume.",
-   "Properties": {
+   "fullType": "UnityEngine.BoxCollider",
+   "category": "Physics",
+   "description": "Box-shaped collision volume.",
+   "properties": {
     "center": {
-     "__args__": [
-      "Vector3",
-      "Center offset.",
-      "{x:0, y:0, z:0}"
-     ]
+     "type": "Vector3",
+     "description": "Center offset.",
+     "default": "{x:0, y:0, z:0}"
     },
     "size": {
-     "__args__": [
-      "Vector3",
-      "Box dimensions.",
-      "{x:1, y:1, z:1}"
-     ]
+     "type": "Vector3",
+     "description": "Box dimensions.",
+     "default": "{x:1, y:1, z:1}"
     },
     "isTrigger": {
-     "__args__": [
-      "bool",
-      "Trigger mode (no physics collision).",
-      "false"
-     ]
+     "type": "bool",
+     "description": "Trigger mode (no physics collision).",
+     "default": "false"
     }
    }
   },
   "SphereCollider": {
-   "FullType": "UnityEngine.SphereCollider",
-   "Category": "Physics",
-   "Description": "Sphere-shaped collision volume.",
-   "Properties": {
+   "fullType": "UnityEngine.SphereCollider",
+   "category": "Physics",
+   "description": "Sphere-shaped collision volume.",
+   "properties": {
     "center": {
-     "__args__": [
-      "Vector3",
-      "Center offset.",
-      "{x:0, y:0, z:0}"
-     ]
+     "type": "Vector3",
+     "description": "Center offset.",
+     "default": "{x:0, y:0, z:0}"
     },
     "radius": {
-     "__args__": [
-      "float",
-      "Sphere radius.",
-      "0.5"
-     ]
+     "type": "float",
+     "description": "Sphere radius.",
+     "default": "0.5"
     },
     "isTrigger": {
-     "__args__": [
-      "bool",
-      "Trigger mode.",
-      "false"
-     ]
+     "type": "bool",
+     "description": "Trigger mode.",
+     "default": "false"
     }
    }
   },
   "CapsuleCollider": {
-   "FullType": "UnityEngine.CapsuleCollider",
-   "Category": "Physics",
-   "Description": "Capsule-shaped collision volume.",
-   "Properties": {
+   "fullType": "UnityEngine.CapsuleCollider",
+   "category": "Physics",
+   "description": "Capsule-shaped collision volume.",
+   "properties": {
     "center": {
-     "__args__": [
-      "Vector3",
-      "Center offset.",
-      "{x:0, y:0, z:0}"
-     ]
+     "type": "Vector3",
+     "description": "Center offset.",
+     "default": "{x:0, y:0, z:0}"
     },
     "radius": {
-     "__args__": [
-      "float",
-      "Capsule radius.",
-      "0.5"
-     ]
+     "type": "float",
+     "description": "Capsule radius.",
+     "default": "0.5"
     },
     "height": {
-     "__args__": [
-      "float",
-      "Capsule height.",
-      "2"
-     ]
+     "type": "float",
+     "description": "Capsule height.",
+     "default": "2"
     },
     "direction": {
-     "__args__": [
-      "enum",
-      "X(0), Y(1), Z(2)",
-      "1"
-     ]
+     "type": "enum",
+     "description": "X(0), Y(1), Z(2)",
+     "default": "1"
     },
     "isTrigger": {
-     "__args__": [
-      "bool",
-      "Trigger mode.",
-      "false"
-     ]
+     "type": "bool",
+     "description": "Trigger mode.",
+     "default": "false"
     }
    }
   },
   "MeshCollider": {
-   "FullType": "UnityEngine.MeshCollider",
-   "Category": "Physics",
-   "Description": "Mesh-shaped collision. Convex for dynamic objects, concave for static.",
-   "Properties": {
+   "fullType": "UnityEngine.MeshCollider",
+   "category": "Physics",
+   "description": "Mesh-shaped collision. Convex for dynamic objects, concave for static.",
+   "properties": {
     "convex": {
-     "__args__": [
-      "bool",
-      "Use convex hull. Required for Rigidbody.",
-      "false"
-     ]
+     "type": "bool",
+     "description": "Use convex hull. Required for Rigidbody.",
+     "default": "false"
     },
     "isTrigger": {
-     "__args__": [
-      "bool",
-      "Trigger mode. Requires convex=true.",
-      "false"
-     ]
+     "type": "bool",
+     "description": "Trigger mode. Requires convex=true.",
+     "default": "false"
     },
     "sharedMesh": {
-     "__args__": [
-      "Mesh",
-      "Collision mesh.",
-      "null"
-     ]
+     "type": "Mesh",
+     "description": "Collision mesh.",
+     "default": "null"
     }
    }
   },
   "CharacterController": {
-   "FullType": "UnityEngine.CharacterController",
-   "Category": "Physics",
-   "Description": "Character movement controller with built-in capsule collider. Does not use Rigidbody.",
-   "Properties": {
+   "fullType": "UnityEngine.CharacterController",
+   "category": "Physics",
+   "description": "Character movement controller with built-in capsule collider. Does not use Rigidbody.",
+   "properties": {
     "center": {
-     "__args__": [
-      "Vector3",
-      "Center offset.",
-      "{x:0, y:0, z:0}"
-     ]
+     "type": "Vector3",
+     "description": "Center offset.",
+     "default": "{x:0, y:0, z:0}"
     },
     "radius": {
-     "__args__": [
-      "float",
-      "Capsule radius.",
-      "0.5"
-     ]
+     "type": "float",
+     "description": "Capsule radius.",
+     "default": "0.5"
     },
     "height": {
-     "__args__": [
-      "float",
-      "Capsule height.",
-      "2"
-     ]
+     "type": "float",
+     "description": "Capsule height.",
+     "default": "2"
     },
     "slopeLimit": {
-     "__args__": [
-      "float",
-      "Max walkable slope degrees.",
-      "45"
-     ]
+     "type": "float",
+     "description": "Max walkable slope degrees.",
+     "default": "45"
     },
     "stepOffset": {
-     "__args__": [
-      "float",
-      "Max step height.",
-      "0.3"
-     ]
+     "type": "float",
+     "description": "Max step height.",
+     "default": "0.3"
     },
     "skinWidth": {
-     "__args__": [
-      "float",
-      "Skin width for collision.",
-      "0.08"
-     ]
+     "type": "float",
+     "description": "Skin width for collision.",
+     "default": "0.08"
     },
     "minMoveDistance": {
-     "__args__": [
-      "float",
-      "Min move distance.",
-      "0.001"
-     ]
+     "type": "float",
+     "description": "Min move distance.",
+     "default": "0.001"
     }
    }
   },
   "Camera": {
-   "FullType": "UnityEngine.Camera",
-   "Category": "Rendering",
-   "Description": "Renders a view of the scene. Main Camera tagged 'MainCamera'.",
-   "Properties": {
+   "fullType": "UnityEngine.Camera",
+   "category": "Rendering",
+   "description": "Renders a view of the scene. Main Camera tagged 'MainCamera'.",
+   "properties": {
     "clearFlags": {
-     "__args__": [
-      "enum",
-      "Skybox (1), SolidColor (2), Depth (3), Nothing (4)",
-      "1"
-     ]
+     "type": "enum",
+     "description": "Skybox (1), SolidColor (2), Depth (3), Nothing (4)",
+     "default": "1"
     },
     "backgroundColor": {
-     "__args__": [
-      "Color",
-      "Background color when SolidColor.",
-      "{r:0.19, g:0.3, b:0.47, a:0}"
-     ]
+     "type": "Color",
+     "description": "Background color when SolidColor.",
+     "default": "{r:0.19, g:0.3, b:0.47, a:0}"
     },
     "orthographic": {
-     "__args__": [
-      "bool",
-      "Orthographic (true) or Perspective (false).",
-      "false"
-     ]
+     "type": "bool",
+     "description": "Orthographic (true) or Perspective (false).",
+     "default": "false"
     },
     "orthographicSize": {
-     "__args__": [
-      "float",
-      "Half-height of ortho view.",
-      "5"
-     ]
+     "type": "float",
+     "description": "Half-height of ortho view.",
+     "default": "5"
     },
     "fieldOfView": {
-     "__args__": [
-      "float",
-      "FOV in degrees for perspective.",
-      "60"
-     ]
+     "type": "float",
+     "description": "FOV in degrees for perspective.",
+     "default": "60"
     },
     "nearClipPlane": {
-     "__args__": [
-      "float",
-      "Near clip distance.",
-      "0.3"
-     ]
+     "type": "float",
+     "description": "Near clip distance.",
+     "default": "0.3"
     },
     "farClipPlane": {
-     "__args__": [
-      "float",
-      "Far clip distance.",
-      "1000"
-     ]
+     "type": "float",
+     "description": "Far clip distance.",
+     "default": "1000"
     },
     "depth": {
-     "__args__": [
-      "float",
-      "Camera render order.",
-      "-1"
-     ]
+     "type": "float",
+     "description": "Camera render order.",
+     "default": "-1"
     },
     "cullingMask": {
-     "__args__": [
-      "int",
-      "Layer mask for rendering.",
-      "-1 (Everything)"
-     ]
+     "type": "int",
+     "description": "Layer mask for rendering.",
+     "default": "-1 (Everything)"
     }
    }
   },
   "Light": {
-   "FullType": "UnityEngine.Light",
-   "Category": "Rendering",
-   "Description": "Light source component.",
-   "Properties": {
+   "fullType": "UnityEngine.Light",
+   "category": "Rendering",
+   "description": "Light source component.",
+   "properties": {
     "type": {
-     "__args__": [
-      "enum",
-      "Spot (0), Directional (1), Point (2), Area (3)",
-      "1"
-     ]
+     "type": "enum",
+     "description": "Spot (0), Directional (1), Point (2), Area (3)",
+     "default": "1"
     },
     "color": {
-     "__args__": [
-      "Color",
-      "Light color.",
-      "{r:1, g:1, b:1, a:1}"
-     ]
+     "type": "Color",
+     "description": "Light color.",
+     "default": "{r:1, g:1, b:1, a:1}"
     },
     "intensity": {
-     "__args__": [
-      "float",
-      "Light intensity.",
-      "1"
-     ]
+     "type": "float",
+     "description": "Light intensity.",
+     "default": "1"
     },
     "range": {
-     "__args__": [
-      "float",
-      "Range for Point/Spot.",
-      "10"
-     ]
+     "type": "float",
+     "description": "Range for Point/Spot.",
+     "default": "10"
     },
     "spotAngle": {
-     "__args__": [
-      "float",
-      "Spot light cone angle.",
-      "30"
-     ]
+     "type": "float",
+     "description": "Spot light cone angle.",
+     "default": "30"
     },
     "shadows": {
-     "__args__": [
-      "enum",
-      "None (0), Hard (1), Soft (2)",
-      "1"
-     ]
+     "type": "enum",
+     "description": "None (0), Hard (1), Soft (2)",
+     "default": "1"
     }
    }
   },
   "MeshFilter": {
-   "FullType": "UnityEngine.MeshFilter",
-   "Category": "Rendering",
-   "Description": "Holds mesh data for MeshRenderer. Pair with MeshRenderer for 3D visuals.",
-   "Properties": {
+   "fullType": "UnityEngine.MeshFilter",
+   "category": "Rendering",
+   "description": "Holds mesh data for MeshRenderer. Pair with MeshRenderer for 3D visuals.",
+   "properties": {
     "sharedMesh": {
-     "__args__": [
-      "Mesh",
-      "Mesh asset. Built-in: Cube, Sphere, Capsule, Cylinder, Plane, Quad.",
-      "null"
-     ]
+     "type": "Mesh",
+     "description": "Mesh asset. Built-in: Cube, Sphere, Capsule, Cylinder, Plane, Quad.",
+     "default": "null"
     }
    }
   },
   "MeshRenderer": {
-   "FullType": "UnityEngine.MeshRenderer",
-   "Category": "Rendering",
-   "Description": "Renders mesh from MeshFilter with materials.",
-   "Properties": {
+   "fullType": "UnityEngine.MeshRenderer",
+   "category": "Rendering",
+   "description": "Renders mesh from MeshFilter with materials.",
+   "properties": {
     "sharedMaterial": {
-     "__args__": [
-      "Material",
-      "Primary material.",
-      "Default-Material"
-     ]
+     "type": "Material",
+     "description": "Primary material.",
+     "default": "Default-Material"
     },
     "shadowCastingMode": {
-     "__args__": [
-      "enum",
-      "Off (0), On (1), TwoSided (2), ShadowsOnly (3)",
-      "1"
-     ]
+     "type": "enum",
+     "description": "Off (0), On (1), TwoSided (2), ShadowsOnly (3)",
+     "default": "1"
     },
     "receiveShadows": {
-     "__args__": [
-      "bool",
-      "Receive shadows.",
-      "true"
-     ]
+     "type": "bool",
+     "description": "Receive shadows.",
+     "default": "true"
     },
     "enabled": {
-     "__args__": [
-      "bool",
-      "Enable rendering.",
-      "true"
-     ]
+     "type": "bool",
+     "description": "Enable rendering.",
+     "default": "true"
     }
    }
   },
   "AudioSource": {
-   "FullType": "UnityEngine.AudioSource",
-   "Category": "Audio",
-   "Description": "Plays audio clips. Supports 2D and 3D spatial audio.",
-   "Properties": {
+   "fullType": "UnityEngine.AudioSource",
+   "category": "Audio",
+   "description": "Plays audio clips. Supports 2D and 3D spatial audio.",
+   "properties": {
     "clip": {
-     "__args__": [
-      "AudioClip",
-      "Audio clip to play.",
-      "null"
-     ]
+     "type": "AudioClip",
+     "description": "Audio clip to play.",
+     "default": "null"
     },
     "volume": {
-     "__args__": [
-      "float",
-      "Volume 0-1.",
-      "1"
-     ]
+     "type": "float",
+     "description": "Volume 0-1.",
+     "default": "1"
     },
     "pitch": {
-     "__args__": [
-      "float",
-      "Playback speed.",
-      "1"
-     ]
+     "type": "float",
+     "description": "Playback speed.",
+     "default": "1"
     },
     "loop": {
-     "__args__": [
-      "bool",
-      "Loop playback.",
-      "false"
-     ]
+     "type": "bool",
+     "description": "Loop playback.",
+     "default": "false"
     },
     "playOnAwake": {
-     "__args__": [
-      "bool",
-      "Auto-play on start.",
-      "true"
-     ]
+     "type": "bool",
+     "description": "Auto-play on start.",
+     "default": "true"
     },
     "spatialBlend": {
-     "__args__": [
-      "float",
-      "0=2D, 1=3D.",
-      "0"
-     ]
+     "type": "float",
+     "description": "0=2D, 1=3D.",
+     "default": "0"
     },
     "minDistance": {
-     "__args__": [
-      "float",
-      "3D min distance.",
-      "1"
-     ]
+     "type": "float",
+     "description": "3D min distance.",
+     "default": "1"
     },
     "maxDistance": {
-     "__args__": [
-      "float",
-      "3D max distance.",
-      "500"
-     ]
+     "type": "float",
+     "description": "3D max distance.",
+     "default": "500"
     },
     "mute": {
-     "__args__": [
-      "bool",
-      "Mute output.",
-      "false"
-     ]
+     "type": "bool",
+     "description": "Mute output.",
+     "default": "false"
     }
    }
   },
   "Animator": {
-   "FullType": "UnityEngine.Animator",
-   "Category": "Animation",
-   "Description": "Controls Mecanim animations via AnimatorController state machine.",
-   "Properties": {
+   "fullType": "UnityEngine.Animator",
+   "category": "Animation",
+   "description": "Controls Mecanim animations via AnimatorController state machine.",
+   "properties": {
     "runtimeAnimatorController": {
-     "__args__": [
-      "RuntimeAnimatorController",
-      "Animator controller asset.",
-      "null"
-     ]
+     "type": "RuntimeAnimatorController",
+     "description": "Animator controller asset.",
+     "default": "null"
     },
     "avatar": {
-     "__args__": [
-      "Avatar",
-      "Humanoid avatar definition.",
-      "null"
-     ]
+     "type": "Avatar",
+     "description": "Humanoid avatar definition.",
+     "default": "null"
     },
     "applyRootMotion": {
-     "__args__": [
-      "bool",
-      "Apply root bone motion.",
-      "false"
-     ]
+     "type": "bool",
+     "description": "Apply root bone motion.",
+     "default": "false"
     },
     "updateMode": {
-     "__args__": [
-      "enum",
-      "Normal (0), AnimatePhysics (1), UnscaledTime (2)",
-      "0"
-     ]
+     "type": "enum",
+     "description": "Normal (0), AnimatePhysics (1), UnscaledTime (2)",
+     "default": "0"
     },
     "cullingMode": {
-     "__args__": [
-      "enum",
-      "AlwaysAnimate (0), CullUpdateTransforms (1), CullCompletely (2)",
-      "0"
-     ]
+     "type": "enum",
+     "description": "AlwaysAnimate (0), CullUpdateTransforms (1), CullCompletely (2)",
+     "default": "0"
     },
     "speed": {
-     "__args__": [
-      "float",
-      "Playback speed multiplier.",
-      "1"
-     ]
+     "type": "float",
+     "description": "Playback speed multiplier.",
+     "default": "1"
     }
    }
   },
   "ParticleSystem": {
-   "FullType": "UnityEngine.ParticleSystem",
-   "Category": "Effects",
-   "Description": "Particle effect system. Configure via sub-modules (main, emission, shape, etc.).",
-   "Properties": {
+   "fullType": "UnityEngine.ParticleSystem",
+   "category": "Effects",
+   "description": "Particle effect system. Configure via sub-modules (main, emission, shape, etc.).",
+   "properties": {
     "main.duration": {
-     "__args__": [
-      "float",
-      "Effect duration in seconds.",
-      "5"
-     ]
+     "type": "float",
+     "description": "Effect duration in seconds.",
+     "default": "5"
     },
     "main.loop": {
-     "__args__": [
-      "bool",
-      "Loop the effect.",
-      "true"
-     ]
+     "type": "bool",
+     "description": "Loop the effect.",
+     "default": "true"
     },
     "main.startLifetime": {
-     "__args__": [
-      "float",
-      "Particle lifetime.",
-      "5"
-     ]
+     "type": "float",
+     "description": "Particle lifetime.",
+     "default": "5"
     },
     "main.startSpeed": {
-     "__args__": [
-      "float",
-      "Initial particle speed.",
-      "5"
-     ]
+     "type": "float",
+     "description": "Initial particle speed.",
+     "default": "5"
     },
     "main.startSize": {
-     "__args__": [
-      "float",
-      "Initial particle size.",
-      "1"
-     ]
+     "type": "float",
+     "description": "Initial particle size.",
+     "default": "1"
     },
     "main.startColor": {
-     "__args__": [
-      "Color",
-      "Initial particle color.",
-      "{r:1,g:1,b:1,a:1}"
-     ]
+     "type": "Color",
+     "description": "Initial particle color.",
+     "default": "{r:1,g:1,b:1,a:1}"
     },
     "main.maxParticles": {
-     "__args__": [
-      "int",
-      "Max alive particles.",
-      "1000"
-     ]
+     "type": "int",
+     "description": "Max alive particles.",
+     "default": "1000"
     },
     "main.simulationSpace": {
-     "__args__": [
-      "enum",
-      "Local (0), World (1), Custom (2)",
-      "0"
-     ]
+     "type": "enum",
+     "description": "Local (0), World (1), Custom (2)",
+     "default": "0"
     },
     "main.playOnAwake": {
-     "__args__": [
-      "bool",
-      "Auto-play on start.",
-      "true"
-     ]
+     "type": "bool",
+     "description": "Auto-play on start.",
+     "default": "true"
     }
    }
   },
   "EventSystem": {
-   "FullType": "UnityEngine.EventSystems.EventSystem",
-   "Category": "UI Core",
-   "Description": "Required for UI interaction. One per scene. Handles input routing to UI elements.",
-   "Properties": {
+   "fullType": "UnityEngine.EventSystems.EventSystem",
+   "category": "UI Core",
+   "description": "Required for UI interaction. One per scene. Handles input routing to UI elements.",
+   "properties": {
     "firstSelectedGameObject": {
-     "__args__": [
-      "GameObject",
-      "First selected UI element.",
-      "null"
-     ]
+     "type": "GameObject",
+     "description": "First selected UI element.",
+     "default": "null"
     },
     "sendNavigationEvents": {
-     "__args__": [
-      "bool",
-      "Send navigation events.",
-      "true"
-     ]
+     "type": "bool",
+     "description": "Send navigation events.",
+     "default": "true"
     },
     "pixelDragThreshold": {
-     "__args__": [
-      "int",
-      "Pixel threshold for drag detection.",
-      "10"
-     ]
+     "type": "int",
+     "description": "Pixel threshold for drag detection.",
+     "default": "10"
     }
    }
   },
   "StandaloneInputModule": {
-   "FullType": "UnityEngine.EventSystems.StandaloneInputModule",
-   "Category": "UI Core",
-   "Description": "Input module for standalone platforms. Usually paired with EventSystem.",
-   "Properties": {
+   "fullType": "UnityEngine.EventSystems.StandaloneInputModule",
+   "category": "UI Core",
+   "description": "Input module for standalone platforms. Usually paired with EventSystem.",
+   "properties": {
     "horizontalAxis": {
-     "__args__": [
-      "string",
-      "Horizontal input axis name.",
-      "\"Horizontal\""
-     ]
+     "type": "string",
+     "description": "Horizontal input axis name.",
+     "default": "\"Horizontal\""
     },
     "verticalAxis": {
-     "__args__": [
-      "string",
-      "Vertical input axis name.",
-      "\"Vertical\""
-     ]
+     "type": "string",
+     "description": "Vertical input axis name.",
+     "default": "\"Vertical\""
     },
     "submitButton": {
-     "__args__": [
-      "string",
-      "Submit button name.",
-      "\"Submit\""
-     ]
+     "type": "string",
+     "description": "Submit button name.",
+     "default": "\"Submit\""
     },
     "cancelButton": {
-     "__args__": [
-      "string",
-      "Cancel button name.",
-      "\"Cancel\""
-     ]
+     "type": "string",
+     "description": "Cancel button name.",
+     "default": "\"Cancel\""
     }
    }
   },
   "AspectRatioFitter": {
-   "FullType": "UnityEngine.UI.AspectRatioFitter",
-   "Category": "UI Layout",
-   "Description": "Maintains aspect ratio of RectTransform.",
-   "Properties": {
+   "fullType": "UnityEngine.UI.AspectRatioFitter",
+   "category": "UI Layout",
+   "description": "Maintains aspect ratio of RectTransform.",
+   "properties": {
     "aspectMode": {
-     "__args__": [
-      "enum",
-      "None (0), WidthControlsHeight (1), HeightControlsWidth (2), FitInParent (3), EnvelopeParent (4)",
-      "0"
-     ]
+     "type": "enum",
+     "description": "None (0), WidthControlsHeight (1), HeightControlsWidth (2), FitInParent (3), EnvelopeParent (4)",
+     "default": "0"
     },
     "aspectRatio": {
-     "__args__": [
-      "float",
-      "Desired width/height ratio.",
-      "1"
-     ]
+     "type": "float",
+     "description": "Desired width/height ratio.",
+     "default": "1"
     }
    }
   },
   "CanvasGroup": {
-   "FullType": "UnityEngine.CanvasGroup",
-   "Category": "UI Core",
-   "Description": "Controls alpha, interactability, and raycasting for a group of UI elements. Essential for fade-in/out effects.",
-   "Properties": {
+   "fullType": "UnityEngine.CanvasGroup",
+   "category": "UI Core",
+   "description": "Controls alpha, interactability, and raycasting for a group of UI elements. Essential for fade-in/out effects.",
+   "properties": {
     "alpha": {
-     "__args__": [
-      "float",
-      "Group opacity 0-1. Affects all children.",
-      "1"
-     ]
+     "type": "float",
+     "description": "Group opacity 0-1. Affects all children.",
+     "default": "1"
     },
     "interactable": {
-     "__args__": [
-      "bool",
-      "Can children receive input.",
-      "true"
-     ]
+     "type": "bool",
+     "description": "Can children receive input.",
+     "default": "true"
     },
     "blocksRaycasts": {
-     "__args__": [
-      "bool",
-      "Does this group block raycasts.",
-      "true"
-     ]
+     "type": "bool",
+     "description": "Does this group block raycasts.",
+     "default": "true"
     },
     "ignoreParentGroups": {
-     "__args__": [
-      "bool",
-      "Ignore parent CanvasGroup settings.",
-      "false"
-     ]
+     "type": "bool",
+     "description": "Ignore parent CanvasGroup settings.",
+     "default": "false"
     }
    }
   },
   "ToggleGroup": {
-   "FullType": "UnityEngine.UI.ToggleGroup",
-   "Category": "UI Interactive",
-   "Description": "Groups Toggles for radio-button behavior. Only one Toggle can be active at a time.",
-   "Properties": {
+   "fullType": "UnityEngine.UI.ToggleGroup",
+   "category": "UI Interactive",
+   "description": "Groups Toggles for radio-button behavior. Only one Toggle can be active at a time.",
+   "properties": {
     "allowSwitchOff": {
-     "__args__": [
-      "bool",
-      "Allow all toggles to be off.",
-      "false"
-     ]
+     "type": "bool",
+     "description": "Allow all toggles to be off.",
+     "default": "false"
     }
    }
   },
   "Scrollbar": {
-   "FullType": "UnityEngine.UI.Scrollbar",
-   "Category": "UI Interactive",
-   "Description": "Scrollbar control, typically used with ScrollRect.",
-   "Properties": {
+   "fullType": "UnityEngine.UI.Scrollbar",
+   "category": "UI Interactive",
+   "description": "Scrollbar control, typically used with ScrollRect.",
+   "properties": {
     "value": {
-     "__args__": [
-      "float",
-      "Current value 0-1.",
-      "0"
-     ]
+     "type": "float",
+     "description": "Current value 0-1.",
+     "default": "0"
     },
     "size": {
-     "__args__": [
-      "float",
-      "Handle size 0-1.",
-      "0.2"
-     ]
+     "type": "float",
+     "description": "Handle size 0-1.",
+     "default": "0.2"
     },
     "numberOfSteps": {
-     "__args__": [
-      "int",
-      "Discrete steps. 0=continuous.",
-      "0"
-     ]
+     "type": "int",
+     "description": "Discrete steps. 0=continuous.",
+     "default": "0"
     },
     "direction": {
-     "__args__": [
-      "enum",
-      "LeftToRight (0), RightToLeft (1), BottomToTop (2), TopToBottom (3)",
-      "0"
-     ]
+     "type": "enum",
+     "description": "LeftToRight (0), RightToLeft (1), BottomToTop (2), TopToBottom (3)",
+     "default": "0"
     },
     "interactable": {
-     "__args__": [
-      "bool",
-      "Can be interacted with.",
-      "true"
-     ]
+     "type": "bool",
+     "description": "Can be interacted with.",
+     "default": "true"
     }
    }
   },
   "Rigidbody2D": {
-   "FullType": "UnityEngine.Rigidbody2D",
-   "Category": "Physics 2D",
-   "Description": "2D physics body. Enables gravity, forces, and collisions in 2D space.",
-   "Properties": {
+   "fullType": "UnityEngine.Rigidbody2D",
+   "category": "Physics 2D",
+   "description": "2D physics body. Enables gravity, forces, and collisions in 2D space.",
+   "properties": {
     "bodyType": {
-     "__args__": [
-      "enum",
-      "Dynamic (0), Kinematic (1), Static (2)",
-      "0"
-     ]
+     "type": "enum",
+     "description": "Dynamic (0), Kinematic (1), Static (2)",
+     "default": "0"
     },
     "mass": {
-     "__args__": [
-      "float",
-      "Mass in kg.",
-      "1"
-     ]
+     "type": "float",
+     "description": "Mass in kg.",
+     "default": "1"
     },
     "linearDrag": {
-     "__args__": [
-      "float",
-      "Linear drag coefficient.",
-      "0"
-     ]
+     "type": "float",
+     "description": "Linear drag coefficient.",
+     "default": "0"
     },
     "angularDrag": {
-     "__args__": [
-      "float",
-      "Angular drag coefficient.",
-      "0.05"
-     ]
+     "type": "float",
+     "description": "Angular drag coefficient.",
+     "default": "0.05"
     },
     "gravityScale": {
-     "__args__": [
-      "float",
-      "Gravity multiplier.",
-      "1"
-     ]
+     "type": "float",
+     "description": "Gravity multiplier.",
+     "default": "1"
     },
     "collisionDetectionMode": {
-     "__args__": [
-      "enum",
-      "Discrete (0), Continuous (1)",
-      "0"
-     ]
+     "type": "enum",
+     "description": "Discrete (0), Continuous (1)",
+     "default": "0"
     },
     "sleepMode": {
-     "__args__": [
-      "enum",
-      "NeverSleep (0), StartAwake (1), StartAsleep (2)",
-      "1"
-     ]
+     "type": "enum",
+     "description": "NeverSleep (0), StartAwake (1), StartAsleep (2)",
+     "default": "1"
     },
     "interpolation": {
-     "__args__": [
-      "enum",
-      "None (0), Interpolate (1), Extrapolate (2)",
-      "0"
-     ]
+     "type": "enum",
+     "description": "None (0), Interpolate (1), Extrapolate (2)",
+     "default": "0"
     },
     "constraints": {
-     "__args__": [
-      "flags",
-      "FreezePositionX=1, Y=2, Rotation=4",
-      "0"
-     ]
+     "type": "flags",
+     "description": "FreezePositionX=1, Y=2, Rotation=4",
+     "default": "0"
     },
     "simulated": {
-     "__args__": [
-      "bool",
-      "Participate in physics simulation.",
-      "true"
-     ]
+     "type": "bool",
+     "description": "Participate in physics simulation.",
+     "default": "true"
     }
    }
   },
   "BoxCollider2D": {
-   "FullType": "UnityEngine.BoxCollider2D",
-   "Category": "Physics 2D",
-   "Description": "Box-shaped 2D collision area.",
-   "Properties": {
+   "fullType": "UnityEngine.BoxCollider2D",
+   "category": "Physics 2D",
+   "description": "Box-shaped 2D collision area.",
+   "properties": {
     "offset": {
-     "__args__": [
-      "Vector2",
-      "Center offset.",
-      "{x:0, y:0}"
-     ]
+     "type": "Vector2",
+     "description": "Center offset.",
+     "default": "{x:0, y:0}"
     },
     "size": {
-     "__args__": [
-      "Vector2",
-      "Box dimensions.",
-      "{x:1, y:1}"
-     ]
+     "type": "Vector2",
+     "description": "Box dimensions.",
+     "default": "{x:1, y:1}"
     },
     "edgeRadius": {
-     "__args__": [
-      "float",
-      "Rounded edge radius.",
-      "0"
-     ]
+     "type": "float",
+     "description": "Rounded edge radius.",
+     "default": "0"
     },
     "isTrigger": {
-     "__args__": [
-      "bool",
-      "Trigger mode.",
-      "false"
-     ]
+     "type": "bool",
+     "description": "Trigger mode.",
+     "default": "false"
     },
     "usedByEffector": {
-     "__args__": [
-      "bool",
-      "Used by an attached Effector2D.",
-      "false"
-     ]
+     "type": "bool",
+     "description": "Used by an attached Effector2D.",
+     "default": "false"
     },
     "usedByComposite": {
-     "__args__": [
-      "bool",
-      "Used by CompositeCollider2D.",
-      "false"
-     ]
+     "type": "bool",
+     "description": "Used by CompositeCollider2D.",
+     "default": "false"
     }
    }
   },
   "CircleCollider2D": {
-   "FullType": "UnityEngine.CircleCollider2D",
-   "Category": "Physics 2D",
-   "Description": "Circle-shaped 2D collision area.",
-   "Properties": {
+   "fullType": "UnityEngine.CircleCollider2D",
+   "category": "Physics 2D",
+   "description": "Circle-shaped 2D collision area.",
+   "properties": {
     "offset": {
-     "__args__": [
-      "Vector2",
-      "Center offset.",
-      "{x:0, y:0}"
-     ]
+     "type": "Vector2",
+     "description": "Center offset.",
+     "default": "{x:0, y:0}"
     },
     "radius": {
-     "__args__": [
-      "float",
-      "Circle radius.",
-      "0.5"
-     ]
+     "type": "float",
+     "description": "Circle radius.",
+     "default": "0.5"
     },
     "isTrigger": {
-     "__args__": [
-      "bool",
-      "Trigger mode.",
-      "false"
-     ]
+     "type": "bool",
+     "description": "Trigger mode.",
+     "default": "false"
     },
     "usedByEffector": {
-     "__args__": [
-      "bool",
-      "Used by an attached Effector2D.",
-      "false"
-     ]
+     "type": "bool",
+     "description": "Used by an attached Effector2D.",
+     "default": "false"
     },
     "usedByComposite": {
-     "__args__": [
-      "bool",
-      "Used by CompositeCollider2D.",
-      "false"
-     ]
+     "type": "bool",
+     "description": "Used by CompositeCollider2D.",
+     "default": "false"
     }
    }
   },
   "PolygonCollider2D": {
-   "FullType": "UnityEngine.PolygonCollider2D",
-   "Category": "Physics 2D",
-   "Description": "Polygon-shaped 2D collision area. Auto-generated from sprite shape.",
-   "Properties": {
+   "fullType": "UnityEngine.PolygonCollider2D",
+   "category": "Physics 2D",
+   "description": "Polygon-shaped 2D collision area. Auto-generated from sprite shape.",
+   "properties": {
     "offset": {
-     "__args__": [
-      "Vector2",
-      "Center offset.",
-      "{x:0, y:0}"
-     ]
+     "type": "Vector2",
+     "description": "Center offset.",
+     "default": "{x:0, y:0}"
     },
     "isTrigger": {
-     "__args__": [
-      "bool",
-      "Trigger mode.",
-      "false"
-     ]
+     "type": "bool",
+     "description": "Trigger mode.",
+     "default": "false"
     },
     "usedByEffector": {
-     "__args__": [
-      "bool",
-      "Used by an attached Effector2D.",
-      "false"
-     ]
+     "type": "bool",
+     "description": "Used by an attached Effector2D.",
+     "default": "false"
     },
     "usedByComposite": {
-     "__args__": [
-      "bool",
-      "Used by CompositeCollider2D.",
-      "false"
-     ]
+     "type": "bool",
+     "description": "Used by CompositeCollider2D.",
+     "default": "false"
     },
     "autoTiling": {
-     "__args__": [
-      "bool",
-      "Auto-update when sprite is tiled.",
-      "false"
-     ]
+     "type": "bool",
+     "description": "Auto-update when sprite is tiled.",
+     "default": "false"
     },
     "pathCount": {
-     "__args__": [
-      "int",
-      "Number of polygon paths. (read-only)",
-      "1"
-     ]
+     "type": "int",
+     "description": "Number of polygon paths. (read-only)",
+     "default": "1"
     }
    }
   },
   "CompositeCollider2D": {
-   "FullType": "UnityEngine.CompositeCollider2D",
-   "Category": "Physics 2D",
-   "Description": "Merges child colliders (Box/Polygon with usedByComposite=true) into one optimized shape. Requires Rigidbody2D.",
-   "Properties": {
+   "fullType": "UnityEngine.CompositeCollider2D",
+   "category": "Physics 2D",
+   "description": "Merges child colliders (Box/Polygon with usedByComposite=true) into one optimized shape. Requires Rigidbody2D.",
+   "properties": {
     "geometryType": {
-     "__args__": [
-      "enum",
-      "Outlines (0), Polygons (1)",
-      "0"
-     ]
+     "type": "enum",
+     "description": "Outlines (0), Polygons (1)",
+     "default": "0"
     },
     "generationType": {
-     "__args__": [
-      "enum",
-      "Synchronous (0), Manual (1)",
-      "0"
-     ]
+     "type": "enum",
+     "description": "Synchronous (0), Manual (1)",
+     "default": "0"
     },
     "edgeRadius": {
-     "__args__": [
-      "float",
-      "Edge radius for Outlines mode.",
-      "0"
-     ]
+     "type": "float",
+     "description": "Edge radius for Outlines mode.",
+     "default": "0"
     },
     "offsetDistance": {
-     "__args__": [
-      "float",
-      "Offset distance.",
-      "0"
-     ]
+     "type": "float",
+     "description": "Offset distance.",
+     "default": "0"
     },
     "isTrigger": {
-     "__args__": [
-      "bool",
-      "Trigger mode.",
-      "false"
-     ]
+     "type": "bool",
+     "description": "Trigger mode.",
+     "default": "false"
     }
    }
   },
   "EdgeCollider2D": {
-   "FullType": "UnityEngine.EdgeCollider2D",
-   "Category": "Physics 2D",
-   "Description": "Open-ended edge chain 2D collision. Good for terrain surfaces.",
-   "Properties": {
+   "fullType": "UnityEngine.EdgeCollider2D",
+   "category": "Physics 2D",
+   "description": "Open-ended edge chain 2D collision. Good for terrain surfaces.",
+   "properties": {
     "offset": {
-     "__args__": [
-      "Vector2",
-      "Center offset.",
-      "{x:0, y:0}"
-     ]
+     "type": "Vector2",
+     "description": "Center offset.",
+     "default": "{x:0, y:0}"
     },
     "edgeRadius": {
-     "__args__": [
-      "float",
-      "Edge radius.",
-      "0"
-     ]
+     "type": "float",
+     "description": "Edge radius.",
+     "default": "0"
     },
     "isTrigger": {
-     "__args__": [
-      "bool",
-      "Trigger mode.",
-      "false"
-     ]
+     "type": "bool",
+     "description": "Trigger mode.",
+     "default": "false"
     },
     "usedByEffector": {
-     "__args__": [
-      "bool",
-      "Used by an attached Effector2D.",
-      "false"
-     ]
+     "type": "bool",
+     "description": "Used by an attached Effector2D.",
+     "default": "false"
     },
     "usedByComposite": {
-     "__args__": [
-      "bool",
-      "Used by CompositeCollider2D.",
-      "false"
-     ]
+     "type": "bool",
+     "description": "Used by CompositeCollider2D.",
+     "default": "false"
     }
    }
   },
   "SpriteRenderer": {
-   "FullType": "UnityEngine.SpriteRenderer",
-   "Category": "Rendering 2D",
-   "Description": "Renders a Sprite in 2D space. Primary component for 2D game visuals.",
-   "Properties": {
+   "fullType": "UnityEngine.SpriteRenderer",
+   "category": "Rendering 2D",
+   "description": "Renders a Sprite in 2D space. Primary component for 2D game visuals.",
+   "properties": {
     "sprite": {
-     "__args__": [
-      "Sprite",
-      "Sprite asset to render.",
-      "null"
-     ]
+     "type": "Sprite",
+     "description": "Sprite asset to render.",
+     "default": "null"
     },
     "color": {
-     "__args__": [
-      "Color",
-      "Tint color.",
-      "{r:1, g:1, b:1, a:1}"
-     ]
+     "type": "Color",
+     "description": "Tint color.",
+     "default": "{r:1, g:1, b:1, a:1}"
     },
     "flipX": {
-     "__args__": [
-      "bool",
-      "Flip sprite horizontally.",
-      "false"
-     ]
+     "type": "bool",
+     "description": "Flip sprite horizontally.",
+     "default": "false"
     },
     "flipY": {
-     "__args__": [
-      "bool",
-      "Flip sprite vertically.",
-      "false"
-     ]
+     "type": "bool",
+     "description": "Flip sprite vertically.",
+     "default": "false"
     },
     "drawMode": {
-     "__args__": [
-      "enum",
-      "Simple (0), Sliced (1), Tiled (2)",
-      "0"
-     ]
+     "type": "enum",
+     "description": "Simple (0), Sliced (1), Tiled (2)",
+     "default": "0"
     },
     "sortingLayerName": {
-     "__args__": [
-      "string",
-      "Sorting layer name.",
-      "\"Default\""
-     ]
+     "type": "string",
+     "description": "Sorting layer name.",
+     "default": "\"Default\""
     },
     "sortingOrder": {
-     "__args__": [
-      "int",
-      "Order within sorting layer.",
-      "0"
-     ]
+     "type": "int",
+     "description": "Order within sorting layer.",
+     "default": "0"
     },
     "maskInteraction": {
-     "__args__": [
-      "enum",
-      "None (0), VisibleInsideMask (1), VisibleOutsideMask (2)",
-      "0"
-     ]
+     "type": "enum",
+     "description": "None (0), VisibleInsideMask (1), VisibleOutsideMask (2)",
+     "default": "0"
     },
     "spriteSortPoint": {
-     "__args__": [
-      "enum",
-      "Center (0), Pivot (1)",
-      "0"
-     ]
+     "type": "enum",
+     "description": "Center (0), Pivot (1)",
+     "default": "0"
     },
     "sharedMaterial": {
-     "__args__": [
-      "Material",
-      "Material for rendering.",
-      "Sprites-Default"
-     ]
+     "type": "Material",
+     "description": "Material for rendering.",
+     "default": "Sprites-Default"
     }
    }
   },
   "SpriteMask": {
-   "FullType": "UnityEngine.SpriteMask",
-   "Category": "Rendering 2D",
-   "Description": "Masks SpriteRenderers based on sprite alpha. Controls visibility via sorting layers.",
-   "Properties": {
+   "fullType": "UnityEngine.SpriteMask",
+   "category": "Rendering 2D",
+   "description": "Masks SpriteRenderers based on sprite alpha. Controls visibility via sorting layers.",
+   "properties": {
     "sprite": {
-     "__args__": [
-      "Sprite",
-      "Mask sprite.",
-      "null"
-     ]
+     "type": "Sprite",
+     "description": "Mask sprite.",
+     "default": "null"
     },
     "alphaCutoff": {
-     "__args__": [
-      "float",
-      "Alpha below this is masked out.",
-      "0.5"
-     ]
+     "type": "float",
+     "description": "Alpha below this is masked out.",
+     "default": "0.5"
     },
     "isCustomRangeActive": {
-     "__args__": [
-      "bool",
-      "Use custom sorting range.",
-      "false"
-     ]
+     "type": "bool",
+     "description": "Use custom sorting range.",
+     "default": "false"
     },
     "frontSortingLayerID": {
-     "__args__": [
-      "int",
-      "Front sorting layer.",
-      "0"
-     ]
+     "type": "int",
+     "description": "Front sorting layer.",
+     "default": "0"
     },
     "backSortingLayerID": {
-     "__args__": [
-      "int",
-      "Back sorting layer.",
-      "0"
-     ]
+     "type": "int",
+     "description": "Back sorting layer.",
+     "default": "0"
     }
    }
   },
   "Tilemap": {
-   "FullType": "UnityEngine.Tilemaps.Tilemap",
-   "Category": "Tilemap",
-   "Description": "Stores and renders tile data on a grid. Child of Grid GameObject. Core of Unity 2D tilemap system.",
-   "Properties": {
+   "fullType": "UnityEngine.Tilemaps.Tilemap",
+   "category": "Tilemap",
+   "description": "Stores and renders tile data on a grid. Child of Grid GameObject. Core of Unity 2D tilemap system.",
+   "properties": {
     "cellSize": {
-     "__args__": [
-      "Vector3",
-      "Size of each cell.",
-      "{x:1, y:1, z:0}"
-     ]
+     "type": "Vector3",
+     "description": "Size of each cell.",
+     "default": "{x:1, y:1, z:0}"
     },
     "cellGap": {
-     "__args__": [
-      "Vector3",
-      "Gap between cells.",
-      "{x:0, y:0, z:0}"
-     ]
+     "type": "Vector3",
+     "description": "Gap between cells.",
+     "default": "{x:0, y:0, z:0}"
     },
     "cellLayout": {
-     "__args__": [
-      "enum",
-      "Rectangle (0), Hexagon (1), Isometric (2), IsometricZAsY (3)",
-      "0"
-     ]
+     "type": "enum",
+     "description": "Rectangle (0), Hexagon (1), Isometric (2), IsometricZAsY (3)",
+     "default": "0"
     },
     "tileAnchor": {
-     "__args__": [
-      "Vector3",
-      "Anchor position for tiles.",
-      "{x:0.5, y:0.5, z:0}"
-     ]
+     "type": "Vector3",
+     "description": "Anchor position for tiles.",
+     "default": "{x:0.5, y:0.5, z:0}"
     },
     "orientation": {
-     "__args__": [
-      "enum",
-      "XY (0), XZ (1), YX (2), YZ (3), ZX (4), ZY (5), Custom (6)",
-      "0"
-     ]
+     "type": "enum",
+     "description": "XY (0), XZ (1), YX (2), YZ (3), ZX (4), ZY (5), Custom (6)",
+     "default": "0"
     },
     "color": {
-     "__args__": [
-      "Color",
-      "Tint color for all tiles.",
-      "{r:1, g:1, b:1, a:1}"
-     ]
+     "type": "Color",
+     "description": "Tint color for all tiles.",
+     "default": "{r:1, g:1, b:1, a:1}"
     },
     "animationFrameRate": {
-     "__args__": [
-      "float",
-      "Animation speed for animated tiles.",
-      "1"
-     ]
+     "type": "float",
+     "description": "Animation speed for animated tiles.",
+     "default": "1"
     }
    }
   },
   "TilemapRenderer": {
-   "FullType": "UnityEngine.Tilemaps.TilemapRenderer",
-   "Category": "Tilemap",
-   "Description": "Renders tiles from a Tilemap component. Supports chunk or individual mode.",
-   "Properties": {
+   "fullType": "UnityEngine.Tilemaps.TilemapRenderer",
+   "category": "Tilemap",
+   "description": "Renders tiles from a Tilemap component. Supports chunk or individual mode.",
+   "properties": {
     "sortingLayerName": {
-     "__args__": [
-      "string",
-      "Sorting layer.",
-      "\"Default\""
-     ]
+     "type": "string",
+     "description": "Sorting layer.",
+     "default": "\"Default\""
     },
     "sortingOrder": {
-     "__args__": [
-      "int",
-      "Order within sorting layer.",
-      "0"
-     ]
+     "type": "int",
+     "description": "Order within sorting layer.",
+     "default": "0"
     },
     "mode": {
-     "__args__": [
-      "enum",
-      "Chunk (0), Individual (1)",
-      "0"
-     ]
+     "type": "enum",
+     "description": "Chunk (0), Individual (1)",
+     "default": "0"
     },
     "detectChunkCullingBounds": {
-     "__args__": [
-      "enum",
-      "Auto (0), Manual (1)",
-      "0"
-     ]
+     "type": "enum",
+     "description": "Auto (0), Manual (1)",
+     "default": "0"
     },
     "maskInteraction": {
-     "__args__": [
-      "enum",
-      "None (0), VisibleInsideMask (1), VisibleOutsideMask (2)",
-      "0"
-     ]
+     "type": "enum",
+     "description": "None (0), VisibleInsideMask (1), VisibleOutsideMask (2)",
+     "default": "0"
     }
    }
   },
   "TilemapCollider2D": {
-   "FullType": "UnityEngine.Tilemaps.TilemapCollider2D",
-   "Category": "Tilemap",
-   "Description": "Generates 2D colliders from tilemap tile shapes. Use with CompositeCollider2D for performance.",
-   "Properties": {
+   "fullType": "UnityEngine.Tilemaps.TilemapCollider2D",
+   "category": "Tilemap",
+   "description": "Generates 2D colliders from tilemap tile shapes. Use with CompositeCollider2D for performance.",
+   "properties": {
     "isTrigger": {
-     "__args__": [
-      "bool",
-      "Trigger mode.",
-      "false"
-     ]
+     "type": "bool",
+     "description": "Trigger mode.",
+     "default": "false"
     },
     "usedByEffector": {
-     "__args__": [
-      "bool",
-      "Used by Effector2D.",
-      "false"
-     ]
+     "type": "bool",
+     "description": "Used by Effector2D.",
+     "default": "false"
     },
     "usedByComposite": {
-     "__args__": [
-      "bool",
-      "Merge into CompositeCollider2D.",
-      "false"
-     ]
+     "type": "bool",
+     "description": "Merge into CompositeCollider2D.",
+     "default": "false"
     },
     "maximumTileChangeCount": {
-     "__args__": [
-      "int",
-      "Max tile changes before full rebuild.",
-      "1000"
-     ]
+     "type": "int",
+     "description": "Max tile changes before full rebuild.",
+     "default": "1000"
     },
     "extrusionFactor": {
-     "__args__": [
-      "float",
-      "Extrusion for 3D collider depth.",
-      "1"
-     ]
+     "type": "float",
+     "description": "Extrusion for 3D collider depth.",
+     "default": "1"
     }
    }
   },
   "Grid": {
-   "FullType": "UnityEngine.Grid",
-   "Category": "Tilemap",
-   "Description": "Parent grid for Tilemap components. Defines cell layout and sizing.",
-   "Properties": {
+   "fullType": "UnityEngine.Grid",
+   "category": "Tilemap",
+   "description": "Parent grid for Tilemap components. Defines cell layout and sizing.",
+   "properties": {
     "cellSize": {
-     "__args__": [
-      "Vector3",
-      "Size of each cell.",
-      "{x:1, y:1, z:0}"
-     ]
+     "type": "Vector3",
+     "description": "Size of each cell.",
+     "default": "{x:1, y:1, z:0}"
     },
     "cellGap": {
-     "__args__": [
-      "Vector3",
-      "Gap between cells.",
-      "{x:0, y:0, z:0}"
-     ]
+     "type": "Vector3",
+     "description": "Gap between cells.",
+     "default": "{x:0, y:0, z:0}"
     },
     "cellLayout": {
-     "__args__": [
-      "enum",
-      "Rectangle (0), Hexagon (1), Isometric (2), IsometricZAsY (3)",
-      "0"
-     ]
+     "type": "enum",
+     "description": "Rectangle (0), Hexagon (1), Isometric (2), IsometricZAsY (3)",
+     "default": "0"
     },
     "cellSwizzle": {
-     "__args__": [
-      "enum",
-      "XYZ (0), XZY (1), YXZ (2), YZX (3), ZXY (4), ZYX (5)",
-      "0"
-     ]
+     "type": "enum",
+     "description": "XYZ (0), XZY (1), YXZ (2), YZX (3), ZXY (4), ZYX (5)",
+     "default": "0"
     }
    }
   },
   "LineRenderer": {
-   "FullType": "UnityEngine.LineRenderer",
-   "Category": "Rendering",
-   "Description": "Renders a polyline in world space. Good for laser beams, paths, drawing lines.",
-   "Properties": {
+   "fullType": "UnityEngine.LineRenderer",
+   "category": "Rendering",
+   "description": "Renders a polyline in world space. Good for laser beams, paths, drawing lines.",
+   "properties": {
     "positionCount": {
-     "__args__": [
-      "int",
-      "Number of line vertices.",
-      "2"
-     ]
+     "type": "int",
+     "description": "Number of line vertices.",
+     "default": "2"
     },
     "startWidth": {
-     "__args__": [
-      "float",
-      "Line width at start.",
-      "1"
-     ]
+     "type": "float",
+     "description": "Line width at start.",
+     "default": "1"
     },
     "endWidth": {
-     "__args__": [
-      "float",
-      "Line width at end.",
-      "1"
-     ]
+     "type": "float",
+     "description": "Line width at end.",
+     "default": "1"
     },
     "startColor": {
-     "__args__": [
-      "Color",
-      "Color at start.",
-      "{r:1,g:1,b:1,a:1}"
-     ]
+     "type": "Color",
+     "description": "Color at start.",
+     "default": "{r:1,g:1,b:1,a:1}"
     },
     "endColor": {
-     "__args__": [
-      "Color",
-      "Color at end.",
-      "{r:1,g:1,b:1,a:1}"
-     ]
+     "type": "Color",
+     "description": "Color at end.",
+     "default": "{r:1,g:1,b:1,a:1}"
     },
     "loop": {
-     "__args__": [
-      "bool",
-      "Connect last point to first.",
-      "false"
-     ]
+     "type": "bool",
+     "description": "Connect last point to first.",
+     "default": "false"
     },
     "useWorldSpace": {
-     "__args__": [
-      "bool",
-      "Positions in world space.",
-      "true"
-     ]
+     "type": "bool",
+     "description": "Positions in world space.",
+     "default": "true"
     },
     "sharedMaterial": {
-     "__args__": [
-      "Material",
-      "Rendering material.",
-      "Default-Line"
-     ]
+     "type": "Material",
+     "description": "Rendering material.",
+     "default": "Default-Line"
     },
     "sortingLayerName": {
-     "__args__": [
-      "string",
-      "Sorting layer.",
-      "\"Default\""
-     ]
+     "type": "string",
+     "description": "Sorting layer.",
+     "default": "\"Default\""
     },
     "sortingOrder": {
-     "__args__": [
-      "int",
-      "Order within sorting layer.",
-      "0"
-     ]
+     "type": "int",
+     "description": "Order within sorting layer.",
+     "default": "0"
     },
     "numCornerVertices": {
-     "__args__": [
-      "int",
-      "Vertices at corners for smooth bends.",
-      "0"
-     ]
+     "type": "int",
+     "description": "Vertices at corners for smooth bends.",
+     "default": "0"
     },
     "numCapVertices": {
-     "__args__": [
-      "int",
-      "Vertices at line caps.",
-      "0"
-     ]
+     "type": "int",
+     "description": "Vertices at line caps.",
+     "default": "0"
     },
     "alignment": {
-     "__args__": [
-      "enum",
-      "View (0), TransformZ (1)",
-      "0"
-     ]
+     "type": "enum",
+     "description": "View (0), TransformZ (1)",
+     "default": "0"
     }
    }
   },
   "TrailRenderer": {
-   "FullType": "UnityEngine.TrailRenderer",
-   "Category": "Rendering",
-   "Description": "Renders a trail behind a moving object. Good for motion effects, bullets, particles.",
-   "Properties": {
+   "fullType": "UnityEngine.TrailRenderer",
+   "category": "Rendering",
+   "description": "Renders a trail behind a moving object. Good for motion effects, bullets, particles.",
+   "properties": {
     "time": {
-     "__args__": [
-      "float",
-      "Trail duration in seconds.",
-      "5"
-     ]
+     "type": "float",
+     "description": "Trail duration in seconds.",
+     "default": "5"
     },
     "startWidth": {
-     "__args__": [
-      "float",
-      "Width at emission point.",
-      "1"
-     ]
+     "type": "float",
+     "description": "Width at emission point.",
+     "default": "1"
     },
     "endWidth": {
-     "__args__": [
-      "float",
-      "Width at trail end.",
-      "1"
-     ]
+     "type": "float",
+     "description": "Width at trail end.",
+     "default": "1"
     },
     "startColor": {
-     "__args__": [
-      "Color",
-      "Color at emission.",
-      "{r:1,g:1,b:1,a:1}"
-     ]
+     "type": "Color",
+     "description": "Color at emission.",
+     "default": "{r:1,g:1,b:1,a:1}"
     },
     "endColor": {
-     "__args__": [
-      "Color",
-      "Color at trail end.",
-      "{r:1,g:1,b:1,a:1}"
-     ]
+     "type": "Color",
+     "description": "Color at trail end.",
+     "default": "{r:1,g:1,b:1,a:1}"
     },
     "minVertexDistance": {
-     "__args__": [
-      "float",
-      "Min distance for new vertex.",
-      "0.1"
-     ]
+     "type": "float",
+     "description": "Min distance for new vertex.",
+     "default": "0.1"
     },
     "autodestruct": {
-     "__args__": [
-      "bool",
-      "Destroy when trail vanishes.",
-      "false"
-     ]
+     "type": "bool",
+     "description": "Destroy when trail vanishes.",
+     "default": "false"
     },
     "emitting": {
-     "__args__": [
-      "bool",
-      "Currently emitting trail.",
-      "true"
-     ]
+     "type": "bool",
+     "description": "Currently emitting trail.",
+     "default": "true"
     },
     "sharedMaterial": {
-     "__args__": [
-      "Material",
-      "Rendering material.",
-      "Default-Line"
-     ]
+     "type": "Material",
+     "description": "Rendering material.",
+     "default": "Default-Line"
     },
     "sortingLayerName": {
-     "__args__": [
-      "string",
-      "Sorting layer.",
-      "\"Default\""
-     ]
+     "type": "string",
+     "description": "Sorting layer.",
+     "default": "\"Default\""
     },
     "sortingOrder": {
-     "__args__": [
-      "int",
-      "Order in sorting layer.",
-      "0"
-     ]
+     "type": "int",
+     "description": "Order in sorting layer.",
+     "default": "0"
     }
    }
   },
   "SkinnedMeshRenderer": {
-   "FullType": "UnityEngine.SkinnedMeshRenderer",
-   "Category": "Rendering",
-   "Description": "Renders a mesh deformed by bones/blend shapes. Used for animated characters.",
-   "Properties": {
+   "fullType": "UnityEngine.SkinnedMeshRenderer",
+   "category": "Rendering",
+   "description": "Renders a mesh deformed by bones/blend shapes. Used for animated characters.",
+   "properties": {
     "sharedMesh": {
-     "__args__": [
-      "Mesh",
-      "Skinned mesh asset.",
-      "null"
-     ]
+     "type": "Mesh",
+     "description": "Skinned mesh asset.",
+     "default": "null"
     },
     "sharedMaterial": {
-     "__args__": [
-      "Material",
-      "Primary material.",
-      "null"
-     ]
+     "type": "Material",
+     "description": "Primary material.",
+     "default": "null"
     },
     "rootBone": {
-     "__args__": [
-      "Transform",
-      "Root bone transform.",
-      "null"
-     ]
+     "type": "Transform",
+     "description": "Root bone transform.",
+     "default": "null"
     },
     "quality": {
-     "__args__": [
-      "enum",
-      "Auto (0), Bone1 (1), Bone2 (2), Bone4 (4)",
-      "0"
-     ]
+     "type": "enum",
+     "description": "Auto (0), Bone1 (1), Bone2 (2), Bone4 (4)",
+     "default": "0"
     },
     "updateWhenOffscreen": {
-     "__args__": [
-      "bool",
-      "Update even when not visible.",
-      "false"
-     ]
+     "type": "bool",
+     "description": "Update even when not visible.",
+     "default": "false"
     },
     "skinnedMotionVectors": {
-     "__args__": [
-      "bool",
-      "Generate motion vectors for post-processing.",
-      "true"
-     ]
+     "type": "bool",
+     "description": "Generate motion vectors for post-processing.",
+     "default": "true"
     },
     "shadowCastingMode": {
-     "__args__": [
-      "enum",
-      "Off (0), On (1), TwoSided (2), ShadowsOnly (3)",
-      "1"
-     ]
+     "type": "enum",
+     "description": "Off (0), On (1), TwoSided (2), ShadowsOnly (3)",
+     "default": "1"
     },
     "receiveShadows": {
-     "__args__": [
-      "bool",
-      "Receive shadows.",
-      "true"
-     ]
+     "type": "bool",
+     "description": "Receive shadows.",
+     "default": "true"
     },
     "enabled": {
-     "__args__": [
-      "bool",
-      "Enable rendering.",
-      "true"
-     ]
+     "type": "bool",
+     "description": "Enable rendering.",
+     "default": "true"
     }
    }
   },
   "LODGroup": {
-   "FullType": "UnityEngine.LODGroup",
-   "Category": "Rendering",
-   "Description": "Level of Detail controller. Switches renderers based on screen size for performance.",
-   "Properties": {
+   "fullType": "UnityEngine.LODGroup",
+   "category": "Rendering",
+   "description": "Level of Detail controller. Switches renderers based on screen size for performance.",
+   "properties": {
     "localReferencePoint": {
-     "__args__": [
-      "Vector3",
-      "Reference point for LOD calculation.",
-      "{x:0, y:0, z:0}"
-     ]
+     "type": "Vector3",
+     "description": "Reference point for LOD calculation.",
+     "default": "{x:0, y:0, z:0}"
     },
     "size": {
-     "__args__": [
-      "float",
-      "Object size for LOD calculation.",
-      "1"
-     ]
+     "type": "float",
+     "description": "Object size for LOD calculation.",
+     "default": "1"
     },
     "fadeMode": {
-     "__args__": [
-      "enum",
-      "None (0), CrossFade (1), SpeedTree (2)",
-      "0"
-     ]
+     "type": "enum",
+     "description": "None (0), CrossFade (1), SpeedTree (2)",
+     "default": "0"
     },
     "animateCrossFading": {
-     "__args__": [
-      "bool",
-      "Animate LOD transitions.",
-      "false"
-     ]
+     "type": "bool",
+     "description": "Animate LOD transitions.",
+     "default": "false"
     },
     "enabled": {
-     "__args__": [
-      "bool",
-      "Enable LOD switching.",
-      "true"
-     ]
+     "type": "bool",
+     "description": "Enable LOD switching.",
+     "default": "true"
     }
    }
   },
   "ReflectionProbe": {
-   "FullType": "UnityEngine.ReflectionProbe",
-   "Category": "Rendering",
-   "Description": "Captures environment reflections for nearby objects. Baked or realtime.",
-   "Properties": {
+   "fullType": "UnityEngine.ReflectionProbe",
+   "category": "Rendering",
+   "description": "Captures environment reflections for nearby objects. Baked or realtime.",
+   "properties": {
     "mode": {
-     "__args__": [
-      "enum",
-      "Baked (0), Custom (1), Realtime (2)",
-      "0"
-     ]
+     "type": "enum",
+     "description": "Baked (0), Custom (1), Realtime (2)",
+     "default": "0"
     },
     "refreshMode": {
-     "__args__": [
-      "enum",
-      "OnAwake (0), EveryFrame (1), ViaScripting (2)",
-      "0"
-     ]
+     "type": "enum",
+     "description": "OnAwake (0), EveryFrame (1), ViaScripting (2)",
+     "default": "0"
     },
     "intensity": {
-     "__args__": [
-      "float",
-      "Reflection intensity.",
-      "1"
-     ]
+     "type": "float",
+     "description": "Reflection intensity.",
+     "default": "1"
     },
     "boxProjection": {
-     "__args__": [
-      "bool",
-      "Enable box projection for indoor scenes.",
-      "false"
-     ]
+     "type": "bool",
+     "description": "Enable box projection for indoor scenes.",
+     "default": "false"
     },
     "size": {
-     "__args__": [
-      "Vector3",
-      "Probe bounds size.",
-      "{x:10, y:10, z:10}"
-     ]
+     "type": "Vector3",
+     "description": "Probe bounds size.",
+     "default": "{x:10, y:10, z:10}"
     },
     "center": {
-     "__args__": [
-      "Vector3",
-      "Probe bounds center offset.",
-      "{x:0, y:0, z:0}"
-     ]
+     "type": "Vector3",
+     "description": "Probe bounds center offset.",
+     "default": "{x:0, y:0, z:0}"
     },
     "resolution": {
-     "__args__": [
-      "int",
-      "Cubemap resolution.",
-      "128"
-     ]
+     "type": "int",
+     "description": "Cubemap resolution.",
+     "default": "128"
     },
     "hdr": {
-     "__args__": [
-      "bool",
-      "Use HDR cubemap.",
-      "true"
-     ]
+     "type": "bool",
+     "description": "Use HDR cubemap.",
+     "default": "true"
     },
     "shadowDistance": {
-     "__args__": [
-      "float",
-      "Shadow draw distance.",
-      "100"
-     ]
+     "type": "float",
+     "description": "Shadow draw distance.",
+     "default": "100"
     },
     "nearClipPlane": {
-     "__args__": [
-      "float",
-      "Near clip for capture.",
-      "0.3"
-     ]
+     "type": "float",
+     "description": "Near clip for capture.",
+     "default": "0.3"
     },
     "farClipPlane": {
-     "__args__": [
-      "float",
-      "Far clip for capture.",
-      "1000"
-     ]
+     "type": "float",
+     "description": "Far clip for capture.",
+     "default": "1000"
     }
    }
   },
   "LightProbeGroup": {
-   "FullType": "UnityEngine.LightProbeGroup",
-   "Category": "Rendering",
-   "Description": "Defines positions for light probes that capture lighting for dynamic objects.",
-   "Properties": {
+   "fullType": "UnityEngine.LightProbeGroup",
+   "category": "Rendering",
+   "description": "Defines positions for light probes that capture lighting for dynamic objects.",
+   "properties": {
     "enabled": {
-     "__args__": [
-      "bool",
-      "Enable this probe group.",
-      "true"
-     ]
+     "type": "bool",
+     "description": "Enable this probe group.",
+     "default": "true"
     }
    }
   },
   "NavMeshAgent": {
-   "FullType": "UnityEngine.AI.NavMeshAgent",
-   "Category": "Navigation",
-   "Description": "AI pathfinding agent on NavMesh. Automatically navigates around obstacles.",
-   "Properties": {
+   "fullType": "UnityEngine.AI.NavMeshAgent",
+   "category": "Navigation",
+   "description": "AI pathfinding agent on NavMesh. Automatically navigates around obstacles.",
+   "properties": {
     "speed": {
-     "__args__": [
-      "float",
-      "Max movement speed.",
-      "3.5"
-     ]
+     "type": "float",
+     "description": "Max movement speed.",
+     "default": "3.5"
     },
     "angularSpeed": {
-     "__args__": [
-      "float",
-      "Max rotation speed deg/s.",
-      "120"
-     ]
+     "type": "float",
+     "description": "Max rotation speed deg/s.",
+     "default": "120"
     },
     "acceleration": {
-     "__args__": [
-      "float",
-      "Acceleration.",
-      "8"
-     ]
+     "type": "float",
+     "description": "Acceleration.",
+     "default": "8"
     },
     "stoppingDistance": {
-     "__args__": [
-      "float",
-      "Stop this close to destination.",
-      "0"
-     ]
+     "type": "float",
+     "description": "Stop this close to destination.",
+     "default": "0"
     },
     "autoBraking": {
-     "__args__": [
-      "bool",
-      "Slow down near destination.",
-      "true"
-     ]
+     "type": "bool",
+     "description": "Slow down near destination.",
+     "default": "true"
     },
     "radius": {
-     "__args__": [
-      "float",
-      "Agent radius for avoidance.",
-      "0.5"
-     ]
+     "type": "float",
+     "description": "Agent radius for avoidance.",
+     "default": "0.5"
     },
     "height": {
-     "__args__": [
-      "float",
-      "Agent height.",
-      "2"
-     ]
+     "type": "float",
+     "description": "Agent height.",
+     "default": "2"
     },
     "baseOffset": {
-     "__args__": [
-      "float",
-      "Vertical offset from NavMesh.",
-      "0"
-     ]
+     "type": "float",
+     "description": "Vertical offset from NavMesh.",
+     "default": "0"
     },
     "obstacleAvoidanceType": {
-     "__args__": [
-      "enum",
-      "NoObstacleAvoidance (0), LowQuality (1), MedQuality (2), GoodQuality (3), HighQuality (4)",
-      "3"
-     ]
+     "type": "enum",
+     "description": "NoObstacleAvoidance (0), LowQuality (1), MedQuality (2), GoodQuality (3), HighQuality (4)",
+     "default": "3"
     },
     "avoidancePriority": {
-     "__args__": [
-      "int",
-      "Avoidance priority. Lower=higher priority. 0-99.",
-      "50"
-     ]
+     "type": "int",
+     "description": "Avoidance priority. Lower=higher priority. 0-99.",
+     "default": "50"
     },
     "autoTraverseOffMeshLink": {
-     "__args__": [
-      "bool",
-      "Auto-traverse OffMeshLinks.",
-      "true"
-     ]
+     "type": "bool",
+     "description": "Auto-traverse OffMeshLinks.",
+     "default": "true"
     },
     "areaMask": {
-     "__args__": [
-      "int",
-      "NavMesh area mask.",
-      "-1 (Everything)"
-     ]
+     "type": "int",
+     "description": "NavMesh area mask.",
+     "default": "-1 (Everything)"
     }
    }
   },
   "NavMeshObstacle": {
-   "FullType": "UnityEngine.AI.NavMeshObstacle",
-   "Category": "Navigation",
-   "Description": "Dynamic obstacle that affects NavMesh pathfinding. Agents navigate around it.",
-   "Properties": {
+   "fullType": "UnityEngine.AI.NavMeshObstacle",
+   "category": "Navigation",
+   "description": "Dynamic obstacle that affects NavMesh pathfinding. Agents navigate around it.",
+   "properties": {
     "shape": {
-     "__args__": [
-      "enum",
-      "Capsule (0), Box (1)",
-      "0"
-     ]
+     "type": "enum",
+     "description": "Capsule (0), Box (1)",
+     "default": "0"
     },
     "center": {
-     "__args__": [
-      "Vector3",
-      "Center offset.",
-      "{x:0, y:0, z:0}"
-     ]
+     "type": "Vector3",
+     "description": "Center offset.",
+     "default": "{x:0, y:0, z:0}"
     },
     "size": {
-     "__args__": [
-      "Vector3",
-      "Box size (when shape=Box).",
-      "{x:1, y:1, z:1}"
-     ]
+     "type": "Vector3",
+     "description": "Box size (when shape=Box).",
+     "default": "{x:1, y:1, z:1}"
     },
     "radius": {
-     "__args__": [
-      "float",
-      "Capsule radius.",
-      "0.5"
-     ]
+     "type": "float",
+     "description": "Capsule radius.",
+     "default": "0.5"
     },
     "height": {
-     "__args__": [
-      "float",
-      "Capsule height.",
-      "2"
-     ]
+     "type": "float",
+     "description": "Capsule height.",
+     "default": "2"
     },
     "carve": {
-     "__args__": [
-      "bool",
-      "Carve a hole in NavMesh.",
-      "false"
-     ]
+     "type": "bool",
+     "description": "Carve a hole in NavMesh.",
+     "default": "false"
     },
     "carveOnlyStationary": {
-     "__args__": [
-      "bool",
-      "Only carve when stationary.",
-      "true"
-     ]
+     "type": "bool",
+     "description": "Only carve when stationary.",
+     "default": "true"
     },
     "carvingMoveThreshold": {
-     "__args__": [
-      "float",
-      "Min movement to re-carve.",
-      "0.1"
-     ]
+     "type": "float",
+     "description": "Min movement to re-carve.",
+     "default": "0.1"
     },
     "carvingTimeToStationary": {
-     "__args__": [
-      "float",
-      "Seconds before re-carving.",
-      "0.5"
-     ]
+     "type": "float",
+     "description": "Seconds before re-carving.",
+     "default": "0.5"
     }
    }
   },
   "OffMeshLink": {
-   "FullType": "UnityEngine.OffMeshLink",
-   "Category": "Navigation",
-   "Description": "Connects two NavMesh surfaces for jumping, climbing, or teleporting.",
-   "Properties": {
+   "fullType": "UnityEngine.OffMeshLink",
+   "category": "Navigation",
+   "description": "Connects two NavMesh surfaces for jumping, climbing, or teleporting.",
+   "properties": {
     "startTransform": {
-     "__args__": [
-      "Transform",
-      "Start point transform.",
-      "null"
-     ]
+     "type": "Transform",
+     "description": "Start point transform.",
+     "default": "null"
     },
     "endTransform": {
-     "__args__": [
-      "Transform",
-      "End point transform.",
-      "null"
-     ]
+     "type": "Transform",
+     "description": "End point transform.",
+     "default": "null"
     },
     "costOverride": {
-     "__args__": [
-      "float",
-      "Path cost override. -1=use area cost.",
-      "-1"
-     ]
+     "type": "float",
+     "description": "Path cost override. -1=use area cost.",
+     "default": "-1"
     },
     "biDirectional": {
-     "__args__": [
-      "bool",
-      "Can traverse in both directions.",
-      "true"
-     ]
+     "type": "bool",
+     "description": "Can traverse in both directions.",
+     "default": "true"
     },
     "activated": {
-     "__args__": [
-      "bool",
-      "Link is active.",
-      "true"
-     ]
+     "type": "bool",
+     "description": "Link is active.",
+     "default": "true"
     },
     "autoUpdatePositions": {
-     "__args__": [
-      "bool",
-      "Auto-update when transforms move.",
-      "false"
-     ]
+     "type": "bool",
+     "description": "Auto-update when transforms move.",
+     "default": "false"
     },
     "area": {
-     "__args__": [
-      "int",
-      "NavMesh area type.",
-      "2"
-     ]
+     "type": "int",
+     "description": "NavMesh area type.",
+     "default": "2"
     }
    }
   },
   "HingeJoint": {
-   "FullType": "UnityEngine.HingeJoint",
-   "Category": "Physics Joints",
-   "Description": "Connects two Rigidbodies with a hinge. Good for doors, pendulums, chains.",
-   "Properties": {
+   "fullType": "UnityEngine.HingeJoint",
+   "category": "Physics Joints",
+   "description": "Connects two Rigidbodies with a hinge. Good for doors, pendulums, chains.",
+   "properties": {
     "anchor": {
-     "__args__": [
-      "Vector3",
-      "Hinge anchor in local space.",
-      "{x:0, y:0, z:0}"
-     ]
+     "type": "Vector3",
+     "description": "Hinge anchor in local space.",
+     "default": "{x:0, y:0, z:0}"
     },
     "axis": {
-     "__args__": [
-      "Vector3",
-      "Hinge rotation axis.",
-      "{x:1, y:0, z:0}"
-     ]
+     "type": "Vector3",
+     "description": "Hinge rotation axis.",
+     "default": "{x:1, y:0, z:0}"
     },
     "connectedBody": {
-     "__args__": [
-      "Rigidbody",
-      "Connected body. null=world.",
-      "null"
-     ]
+     "type": "Rigidbody",
+     "description": "Connected body. null=world.",
+     "default": "null"
     },
     "useLimits": {
-     "__args__": [
-      "bool",
-      "Enable angle limits.",
-      "false"
-     ]
+     "type": "bool",
+     "description": "Enable angle limits.",
+     "default": "false"
     },
     "useMotor": {
-     "__args__": [
-      "bool",
-      "Enable motor.",
-      "false"
-     ]
+     "type": "bool",
+     "description": "Enable motor.",
+     "default": "false"
     },
     "useSpring": {
-     "__args__": [
-      "bool",
-      "Enable spring.",
-      "false"
-     ]
+     "type": "bool",
+     "description": "Enable spring.",
+     "default": "false"
     },
     "breakForce": {
-     "__args__": [
-      "float",
-      "Force to break joint. Infinity=unbreakable.",
-      "Infinity"
-     ]
+     "type": "float",
+     "description": "Force to break joint. Infinity=unbreakable.",
+     "default": "Infinity"
     },
     "breakTorque": {
-     "__args__": [
-      "float",
-      "Torque to break joint.",
-      "Infinity"
-     ]
+     "type": "float",
+     "description": "Torque to break joint.",
+     "default": "Infinity"
     }
    }
   },
   "SpringJoint": {
-   "FullType": "UnityEngine.SpringJoint",
-   "Category": "Physics Joints",
-   "Description": "Spring connection between two Rigidbodies. Maintains distance with spring force.",
-   "Properties": {
+   "fullType": "UnityEngine.SpringJoint",
+   "category": "Physics Joints",
+   "description": "Spring connection between two Rigidbodies. Maintains distance with spring force.",
+   "properties": {
     "anchor": {
-     "__args__": [
-      "Vector3",
-      "Anchor in local space.",
-      "{x:0, y:0, z:0}"
-     ]
+     "type": "Vector3",
+     "description": "Anchor in local space.",
+     "default": "{x:0, y:0, z:0}"
     },
     "connectedAnchor": {
-     "__args__": [
-      "Vector3",
-      "Anchor on connected body.",
-      "{x:0, y:0, z:0}"
-     ]
+     "type": "Vector3",
+     "description": "Anchor on connected body.",
+     "default": "{x:0, y:0, z:0}"
     },
     "connectedBody": {
-     "__args__": [
-      "Rigidbody",
-      "Connected body. null=world.",
-      "null"
-     ]
+     "type": "Rigidbody",
+     "description": "Connected body. null=world.",
+     "default": "null"
     },
     "spring": {
-     "__args__": [
-      "float",
-      "Spring force.",
-      "10"
-     ]
+     "type": "float",
+     "description": "Spring force.",
+     "default": "10"
     },
     "damper": {
-     "__args__": [
-      "float",
-      "Damping force.",
-      "0.2"
-     ]
+     "type": "float",
+     "description": "Damping force.",
+     "default": "0.2"
     },
     "minDistance": {
-     "__args__": [
-      "float",
-      "Min distance before spring activates.",
-      "0"
-     ]
+     "type": "float",
+     "description": "Min distance before spring activates.",
+     "default": "0"
     },
     "maxDistance": {
-     "__args__": [
-      "float",
-      "Max distance before spring activates.",
-      "0"
-     ]
+     "type": "float",
+     "description": "Max distance before spring activates.",
+     "default": "0"
     },
     "tolerance": {
-     "__args__": [
-      "float",
-      "Distance tolerance.",
-      "0.025"
-     ]
+     "type": "float",
+     "description": "Distance tolerance.",
+     "default": "0.025"
     },
     "breakForce": {
-     "__args__": [
-      "float",
-      "Force to break.",
-      "Infinity"
-     ]
+     "type": "float",
+     "description": "Force to break.",
+     "default": "Infinity"
     },
     "breakTorque": {
-     "__args__": [
-      "float",
-      "Torque to break.",
-      "Infinity"
-     ]
+     "type": "float",
+     "description": "Torque to break.",
+     "default": "Infinity"
     }
    }
   },
   "FixedJoint": {
-   "FullType": "UnityEngine.FixedJoint",
-   "Category": "Physics Joints",
-   "Description": "Locks two Rigidbodies together. Like welding objects. Can break under force.",
-   "Properties": {
+   "fullType": "UnityEngine.FixedJoint",
+   "category": "Physics Joints",
+   "description": "Locks two Rigidbodies together. Like welding objects. Can break under force.",
+   "properties": {
     "connectedBody": {
-     "__args__": [
-      "Rigidbody",
-      "Connected body. null=world.",
-      "null"
-     ]
+     "type": "Rigidbody",
+     "description": "Connected body. null=world.",
+     "default": "null"
     },
     "breakForce": {
-     "__args__": [
-      "float",
-      "Force to break.",
-      "Infinity"
-     ]
+     "type": "float",
+     "description": "Force to break.",
+     "default": "Infinity"
     },
     "breakTorque": {
-     "__args__": [
-      "float",
-      "Torque to break.",
-      "Infinity"
-     ]
+     "type": "float",
+     "description": "Torque to break.",
+     "default": "Infinity"
     },
     "enableCollision": {
-     "__args__": [
-      "bool",
-      "Enable collision between joined bodies.",
-      "false"
-     ]
+     "type": "bool",
+     "description": "Enable collision between joined bodies.",
+     "default": "false"
     },
     "enablePreprocessing": {
-     "__args__": [
-      "bool",
-      "Enable joint preprocessing.",
-      "true"
-     ]
+     "type": "bool",
+     "description": "Enable joint preprocessing.",
+     "default": "true"
     }
    }
   },
   "ConfigurableJoint": {
-   "FullType": "UnityEngine.ConfigurableJoint",
-   "Category": "Physics Joints",
-   "Description": "Highly customizable joint. Can simulate any joint type by configuring per-axis motion/rotation locks.",
-   "Properties": {
+   "fullType": "UnityEngine.ConfigurableJoint",
+   "category": "Physics Joints",
+   "description": "Highly customizable joint. Can simulate any joint type by configuring per-axis motion/rotation locks.",
+   "properties": {
     "connectedBody": {
-     "__args__": [
-      "Rigidbody",
-      "Connected body. null=world.",
-      "null"
-     ]
+     "type": "Rigidbody",
+     "description": "Connected body. null=world.",
+     "default": "null"
     },
     "anchor": {
-     "__args__": [
-      "Vector3",
-      "Anchor position.",
-      "{x:0, y:0, z:0}"
-     ]
+     "type": "Vector3",
+     "description": "Anchor position.",
+     "default": "{x:0, y:0, z:0}"
     },
     "axis": {
-     "__args__": [
-      "Vector3",
-      "Primary axis.",
-      "{x:1, y:0, z:0}"
-     ]
+     "type": "Vector3",
+     "description": "Primary axis.",
+     "default": "{x:1, y:0, z:0}"
     },
     "xMotion": {
-     "__args__": [
-      "enum",
-      "Free (0), Limited (1), Locked (2)",
-      "0"
-     ]
+     "type": "enum",
+     "description": "Free (0), Limited (1), Locked (2)",
+     "default": "0"
     },
     "yMotion": {
-     "__args__": [
-      "enum",
-      "Free (0), Limited (1), Locked (2)",
-      "0"
-     ]
+     "type": "enum",
+     "description": "Free (0), Limited (1), Locked (2)",
+     "default": "0"
     },
     "zMotion": {
-     "__args__": [
-      "enum",
-      "Free (0), Limited (1), Locked (2)",
-      "0"
-     ]
+     "type": "enum",
+     "description": "Free (0), Limited (1), Locked (2)",
+     "default": "0"
     },
     "angularXMotion": {
-     "__args__": [
-      "enum",
-      "Free (0), Limited (1), Locked (2)",
-      "0"
-     ]
+     "type": "enum",
+     "description": "Free (0), Limited (1), Locked (2)",
+     "default": "0"
     },
     "angularYMotion": {
-     "__args__": [
-      "enum",
-      "Free (0), Limited (1), Locked (2)",
-      "0"
-     ]
+     "type": "enum",
+     "description": "Free (0), Limited (1), Locked (2)",
+     "default": "0"
     },
     "angularZMotion": {
-     "__args__": [
-      "enum",
-      "Free (0), Limited (1), Locked (2)",
-      "0"
-     ]
+     "type": "enum",
+     "description": "Free (0), Limited (1), Locked (2)",
+     "default": "0"
     },
     "breakForce": {
-     "__args__": [
-      "float",
-      "Force to break.",
-      "Infinity"
-     ]
+     "type": "float",
+     "description": "Force to break.",
+     "default": "Infinity"
     },
     "breakTorque": {
-     "__args__": [
-      "float",
-      "Torque to break.",
-      "Infinity"
-     ]
+     "type": "float",
+     "description": "Torque to break.",
+     "default": "Infinity"
     }
    }
   },
   "HingeJoint2D": {
-   "FullType": "UnityEngine.HingeJoint2D",
-   "Category": "Physics 2D Joints",
-   "Description": "2D hinge joint. Connects two Rigidbody2D with a pivot point.",
-   "Properties": {
+   "fullType": "UnityEngine.HingeJoint2D",
+   "category": "Physics 2D Joints",
+   "description": "2D hinge joint. Connects two Rigidbody2D with a pivot point.",
+   "properties": {
     "anchor": {
-     "__args__": [
-      "Vector2",
-      "Anchor in local space.",
-      "{x:0, y:0}"
-     ]
+     "type": "Vector2",
+     "description": "Anchor in local space.",
+     "default": "{x:0, y:0}"
     },
     "connectedAnchor": {
-     "__args__": [
-      "Vector2",
-      "Anchor on connected body.",
-      "{x:0, y:0}"
-     ]
+     "type": "Vector2",
+     "description": "Anchor on connected body.",
+     "default": "{x:0, y:0}"
     },
     "connectedBody": {
-     "__args__": [
-      "Rigidbody2D",
-      "Connected body. null=world.",
-      "null"
-     ]
+     "type": "Rigidbody2D",
+     "description": "Connected body. null=world.",
+     "default": "null"
     },
     "useLimits": {
-     "__args__": [
-      "bool",
-      "Enable angle limits.",
-      "false"
-     ]
+     "type": "bool",
+     "description": "Enable angle limits.",
+     "default": "false"
     },
     "useMotor": {
-     "__args__": [
-      "bool",
-      "Enable motor.",
-      "false"
-     ]
+     "type": "bool",
+     "description": "Enable motor.",
+     "default": "false"
     },
     "autoConfigureConnectedAnchor": {
-     "__args__": [
-      "bool",
-      "Auto configure connected anchor.",
-      "true"
-     ]
+     "type": "bool",
+     "description": "Auto configure connected anchor.",
+     "default": "true"
     },
     "breakForce": {
-     "__args__": [
-      "float",
-      "Force to break.",
-      "Infinity"
-     ]
+     "type": "float",
+     "description": "Force to break.",
+     "default": "Infinity"
     },
     "breakTorque": {
-     "__args__": [
-      "float",
-      "Torque to break.",
-      "Infinity"
-     ]
+     "type": "float",
+     "description": "Torque to break.",
+     "default": "Infinity"
     }
    }
   },
   "SpringJoint2D": {
-   "FullType": "UnityEngine.SpringJoint2D",
-   "Category": "Physics 2D Joints",
-   "Description": "2D spring joint. Maintains distance with spring force.",
-   "Properties": {
+   "fullType": "UnityEngine.SpringJoint2D",
+   "category": "Physics 2D Joints",
+   "description": "2D spring joint. Maintains distance with spring force.",
+   "properties": {
     "anchor": {
-     "__args__": [
-      "Vector2",
-      "Anchor in local space.",
-      "{x:0, y:0}"
-     ]
+     "type": "Vector2",
+     "description": "Anchor in local space.",
+     "default": "{x:0, y:0}"
     },
     "connectedAnchor": {
-     "__args__": [
-      "Vector2",
-      "Anchor on connected body.",
-      "{x:0, y:0}"
-     ]
+     "type": "Vector2",
+     "description": "Anchor on connected body.",
+     "default": "{x:0, y:0}"
     },
     "connectedBody": {
-     "__args__": [
-      "Rigidbody2D",
-      "Connected body. null=world.",
-      "null"
-     ]
+     "type": "Rigidbody2D",
+     "description": "Connected body. null=world.",
+     "default": "null"
     },
     "distance": {
-     "__args__": [
-      "float",
-      "Rest distance.",
-      "auto"
-     ]
+     "type": "float",
+     "description": "Rest distance.",
+     "default": "auto"
     },
     "dampingRatio": {
-     "__args__": [
-      "float",
-      "Damping ratio 0-1.",
-      "0"
-     ]
+     "type": "float",
+     "description": "Damping ratio 0-1.",
+     "default": "0"
     },
     "frequency": {
-     "__args__": [
-      "float",
-      "Spring frequency Hz.",
-      "1"
-     ]
+     "type": "float",
+     "description": "Spring frequency Hz.",
+     "default": "1"
     },
     "autoConfigureDistance": {
-     "__args__": [
-      "bool",
-      "Auto set distance.",
-      "true"
-     ]
+     "type": "bool",
+     "description": "Auto set distance.",
+     "default": "true"
     },
     "breakForce": {
-     "__args__": [
-      "float",
-      "Force to break.",
-      "Infinity"
-     ]
+     "type": "float",
+     "description": "Force to break.",
+     "default": "Infinity"
     }
    }
   },
   "DistanceJoint2D": {
-   "FullType": "UnityEngine.DistanceJoint2D",
-   "Category": "Physics 2D Joints",
-   "Description": "2D distance constraint. Keeps two points at a fixed distance.",
-   "Properties": {
+   "fullType": "UnityEngine.DistanceJoint2D",
+   "category": "Physics 2D Joints",
+   "description": "2D distance constraint. Keeps two points at a fixed distance.",
+   "properties": {
     "anchor": {
-     "__args__": [
-      "Vector2",
-      "Anchor.",
-      "{x:0, y:0}"
-     ]
+     "type": "Vector2",
+     "description": "Anchor.",
+     "default": "{x:0, y:0}"
     },
     "connectedAnchor": {
-     "__args__": [
-      "Vector2",
-      "Connected anchor.",
-      "{x:0, y:0}"
-     ]
+     "type": "Vector2",
+     "description": "Connected anchor.",
+     "default": "{x:0, y:0}"
     },
     "connectedBody": {
-     "__args__": [
-      "Rigidbody2D",
-      "Connected body.",
-      "null"
-     ]
+     "type": "Rigidbody2D",
+     "description": "Connected body.",
+     "default": "null"
     },
     "distance": {
-     "__args__": [
-      "float",
-      "Constraint distance.",
-      "auto"
-     ]
+     "type": "float",
+     "description": "Constraint distance.",
+     "default": "auto"
     },
     "maxDistanceOnly": {
-     "__args__": [
-      "bool",
-      "Only constrain max distance.",
-      "false"
-     ]
+     "type": "bool",
+     "description": "Only constrain max distance.",
+     "default": "false"
     },
     "autoConfigureDistance": {
-     "__args__": [
-      "bool",
-      "Auto set distance.",
-      "true"
-     ]
+     "type": "bool",
+     "description": "Auto set distance.",
+     "default": "true"
     },
     "breakForce": {
-     "__args__": [
-      "float",
-      "Force to break.",
-      "Infinity"
-     ]
+     "type": "float",
+     "description": "Force to break.",
+     "default": "Infinity"
     }
    }
   },
   "Terrain": {
-   "FullType": "UnityEngine.Terrain",
-   "Category": "Terrain",
-   "Description": "Large-scale terrain rendering with heightmap, textures, trees, and grass.",
-   "Properties": {
+   "fullType": "UnityEngine.Terrain",
+   "category": "Terrain",
+   "description": "Large-scale terrain rendering with heightmap, textures, trees, and grass.",
+   "properties": {
     "terrainData": {
-     "__args__": [
-      "TerrainData",
-      "Terrain data asset (heightmap, splatmaps, etc.).",
-      "null"
-     ]
+     "type": "TerrainData",
+     "description": "Terrain data asset (heightmap, splatmaps, etc.).",
+     "default": "null"
     },
     "heightmapPixelError": {
-     "__args__": [
-      "float",
-      "LOD pixel error threshold.",
-      "5"
-     ]
+     "type": "float",
+     "description": "LOD pixel error threshold.",
+     "default": "5"
     },
     "basemapDistance": {
-     "__args__": [
-      "float",
-      "Distance for basemap rendering.",
-      "1000"
-     ]
+     "type": "float",
+     "description": "Distance for basemap rendering.",
+     "default": "1000"
     },
     "drawHeightmap": {
-     "__args__": [
-      "bool",
-      "Render heightmap.",
-      "true"
-     ]
+     "type": "bool",
+     "description": "Render heightmap.",
+     "default": "true"
     },
     "drawTreesAndFoliage": {
-     "__args__": [
-      "bool",
-      "Render trees and grass.",
-      "true"
-     ]
+     "type": "bool",
+     "description": "Render trees and grass.",
+     "default": "true"
     },
     "treeDistance": {
-     "__args__": [
-      "float",
-      "Max tree rendering distance.",
-      "5000"
-     ]
+     "type": "float",
+     "description": "Max tree rendering distance.",
+     "default": "5000"
     },
     "treeBillboardDistance": {
-     "__args__": [
-      "float",
-      "Distance for tree billboarding.",
-      "50"
-     ]
+     "type": "float",
+     "description": "Distance for tree billboarding.",
+     "default": "50"
     },
     "detailObjectDistance": {
-     "__args__": [
-      "float",
-      "Grass/detail render distance.",
-      "80"
-     ]
+     "type": "float",
+     "description": "Grass/detail render distance.",
+     "default": "80"
     },
     "detailObjectDensity": {
-     "__args__": [
-      "float",
-      "Grass/detail density 0-1.",
-      "1"
-     ]
+     "type": "float",
+     "description": "Grass/detail density 0-1.",
+     "default": "1"
     },
     "materialTemplate": {
-     "__args__": [
-      "Material",
-      "Terrain material.",
-      "null"
-     ]
+     "type": "Material",
+     "description": "Terrain material.",
+     "default": "null"
     }
    }
   },
   "TerrainCollider": {
-   "FullType": "UnityEngine.TerrainCollider",
-   "Category": "Terrain",
-   "Description": "Collision for Terrain heightmap. Auto-generated from terrain data.",
-   "Properties": {
+   "fullType": "UnityEngine.TerrainCollider",
+   "category": "Terrain",
+   "description": "Collision for Terrain heightmap. Auto-generated from terrain data.",
+   "properties": {
     "terrainData": {
-     "__args__": [
-      "TerrainData",
-      "Terrain data for collision.",
-      "null"
-     ]
+     "type": "TerrainData",
+     "description": "Terrain data for collision.",
+     "default": "null"
     },
     "enableTreeColliders": {
-     "__args__": [
-      "bool",
-      "Enable tree colliders.",
-      "true"
-     ]
+     "type": "bool",
+     "description": "Enable tree colliders.",
+     "default": "true"
     }
    }
   },
   "VideoPlayer": {
-   "FullType": "UnityEngine.Video.VideoPlayer",
-   "Category": "Video",
-   "Description": "Plays video clips or URLs. Can render to Camera, RenderTexture, or Material.",
-   "Properties": {
+   "fullType": "UnityEngine.Video.VideoPlayer",
+   "category": "Video",
+   "description": "Plays video clips or URLs. Can render to Camera, RenderTexture, or Material.",
+   "properties": {
     "source": {
-     "__args__": [
-      "enum",
-      "VideoClip (0), Url (1)",
-      "0"
-     ]
+     "type": "enum",
+     "description": "VideoClip (0), Url (1)",
+     "default": "0"
     },
     "clip": {
-     "__args__": [
-      "VideoClip",
-      "Video clip asset.",
-      "null"
-     ]
+     "type": "VideoClip",
+     "description": "Video clip asset.",
+     "default": "null"
     },
     "url": {
-     "__args__": [
-      "string",
-      "Video URL for streaming.",
-      "\"\""
-     ]
+     "type": "string",
+     "description": "Video URL for streaming.",
+     "default": "\"\""
     },
     "renderMode": {
-     "__args__": [
-      "enum",
-      "CameraFarPlane (0), CameraNearPlane (1), RenderTexture (2), MaterialOverride (3), APIOnly (4)",
-      "0"
-     ]
+     "type": "enum",
+     "description": "CameraFarPlane (0), CameraNearPlane (1), RenderTexture (2), MaterialOverride (3), APIOnly (4)",
+     "default": "0"
     },
     "playOnAwake": {
-     "__args__": [
-      "bool",
-      "Auto-play on start.",
-      "true"
-     ]
+     "type": "bool",
+     "description": "Auto-play on start.",
+     "default": "true"
     },
     "isLooping": {
-     "__args__": [
-      "bool",
-      "Loop video.",
-      "false"
-     ]
+     "type": "bool",
+     "description": "Loop video.",
+     "default": "false"
     },
     "playbackSpeed": {
-     "__args__": [
-      "float",
-      "Playback speed multiplier.",
-      "1"
-     ]
+     "type": "float",
+     "description": "Playback speed multiplier.",
+     "default": "1"
     },
     "aspectRatio": {
-     "__args__": [
-      "enum",
-      "NoScaling (0), FitVertically (1), FitHorizontally (2), FitInside (3), FitOutside (4), Stretch (5)",
-      "3"
-     ]
+     "type": "enum",
+     "description": "NoScaling (0), FitVertically (1), FitHorizontally (2), FitInside (3), FitOutside (4), Stretch (5)",
+     "default": "3"
     },
     "audioOutputMode": {
-     "__args__": [
-      "enum",
-      "None (0), AudioSource (1), Direct (2), APIOnly (3)",
-      "1"
-     ]
+     "type": "enum",
+     "description": "None (0), AudioSource (1), Direct (2), APIOnly (3)",
+     "default": "1"
     },
     "targetCamera": {
-     "__args__": [
-      "Camera",
-      "Target camera for rendering.",
-      "null"
-     ]
+     "type": "Camera",
+     "description": "Target camera for rendering.",
+     "default": "null"
     },
     "targetTexture": {
-     "__args__": [
-      "RenderTexture",
-      "Target render texture.",
-      "null"
-     ]
+     "type": "RenderTexture",
+     "description": "Target render texture.",
+     "default": "null"
     }
    }
   },
   "PlayableDirector": {
-   "FullType": "UnityEngine.Playables.PlayableDirector",
-   "Category": "Timeline",
-   "Description": "Controls Timeline playback. Drives animations, audio, and custom tracks.",
-   "Properties": {
+   "fullType": "UnityEngine.Playables.PlayableDirector",
+   "category": "Timeline",
+   "description": "Controls Timeline playback. Drives animations, audio, and custom tracks.",
+   "properties": {
     "playableAsset": {
-     "__args__": [
-      "PlayableAsset",
-      "Timeline asset.",
-      "null"
-     ]
+     "type": "PlayableAsset",
+     "description": "Timeline asset.",
+     "default": "null"
     },
     "playOnAwake": {
-     "__args__": [
-      "bool",
-      "Auto-play on start.",
-      "true"
-     ]
+     "type": "bool",
+     "description": "Auto-play on start.",
+     "default": "true"
     },
     "extrapolationMode": {
-     "__args__": [
-      "enum",
-      "Hold (0), Loop (1), None (2)",
-      "0"
-     ]
+     "type": "enum",
+     "description": "Hold (0), Loop (1), None (2)",
+     "default": "0"
     },
     "initialTime": {
-     "__args__": [
-      "double",
-      "Start time in seconds.",
-      "0"
-     ]
+     "type": "double",
+     "description": "Start time in seconds.",
+     "default": "0"
     },
     "timeUpdateMode": {
-     "__args__": [
-      "enum",
-      "DSPClock (0), GameTime (1), UnscaledGameTime (2), Manual (3)",
-      "1"
-     ]
+     "type": "enum",
+     "description": "DSPClock (0), GameTime (1), UnscaledGameTime (2), Manual (3)",
+     "default": "1"
     },
     "duration": {
-     "__args__": [
-      "double",
-      "Timeline duration. (read-only from asset)",
-      "0"
-     ]
+     "type": "double",
+     "description": "Timeline duration. (read-only from asset)",
+     "default": "0"
     }
    }
   },
   "WindZone": {
-   "FullType": "UnityEngine.WindZone",
-   "Category": "Environment",
-   "Description": "Affects Terrain trees, grass, and particle systems with wind force.",
-   "Properties": {
+   "fullType": "UnityEngine.WindZone",
+   "category": "Environment",
+   "description": "Affects Terrain trees, grass, and particle systems with wind force.",
+   "properties": {
     "mode": {
-     "__args__": [
-      "enum",
-      "Directional (0), Spherical (1)",
-      "0"
-     ]
+     "type": "enum",
+     "description": "Directional (0), Spherical (1)",
+     "default": "0"
     },
     "radius": {
-     "__args__": [
-      "float",
-      "Spherical wind radius.",
-      "0"
-     ]
+     "type": "float",
+     "description": "Spherical wind radius.",
+     "default": "0"
     },
     "windMain": {
-     "__args__": [
-      "float",
-      "Primary wind force.",
-      "1"
-     ]
+     "type": "float",
+     "description": "Primary wind force.",
+     "default": "1"
     },
     "windTurbulence": {
-     "__args__": [
-      "float",
-      "Wind turbulence.",
-      "1"
-     ]
+     "type": "float",
+     "description": "Wind turbulence.",
+     "default": "1"
     },
     "windPulseMagnitude": {
-     "__args__": [
-      "float",
-      "Pulse strength.",
-      "0.5"
-     ]
+     "type": "float",
+     "description": "Pulse strength.",
+     "default": "0.5"
     },
     "windPulseFrequency": {
-     "__args__": [
-      "float",
-      "Pulse frequency.",
-      "0.01"
-     ]
+     "type": "float",
+     "description": "Pulse frequency.",
+     "default": "0.01"
     }
    }
   },
   "AudioListener": {
-   "FullType": "UnityEngine.AudioListener",
-   "Category": "Audio",
-   "Description": "Receives audio in the scene. Usually attached to Main Camera. Only one active per scene.",
-   "Properties": {
+   "fullType": "UnityEngine.AudioListener",
+   "category": "Audio",
+   "description": "Receives audio in the scene. Usually attached to Main Camera. Only one active per scene.",
+   "properties": {
     "enabled": {
-     "__args__": [
-      "bool",
-      "Enable audio listening.",
-      "true"
-     ]
+     "type": "bool",
+     "description": "Enable audio listening.",
+     "default": "true"
     }
    }
   },
   "AudioReverbZone": {
-   "FullType": "UnityEngine.AudioReverbZone",
-   "Category": "Audio",
-   "Description": "Defines an area with reverb effects. Good for caves, rooms, outdoors.",
-   "Properties": {
+   "fullType": "UnityEngine.AudioReverbZone",
+   "category": "Audio",
+   "description": "Defines an area with reverb effects. Good for caves, rooms, outdoors.",
+   "properties": {
     "minDistance": {
-     "__args__": [
-      "float",
-      "Full reverb within this distance.",
-      "10"
-     ]
+     "type": "float",
+     "description": "Full reverb within this distance.",
+     "default": "10"
     },
     "maxDistance": {
-     "__args__": [
-      "float",
-      "No reverb beyond this distance.",
-      "15"
-     ]
+     "type": "float",
+     "description": "No reverb beyond this distance.",
+     "default": "15"
     },
     "reverbPreset": {
-     "__args__": [
-      "enum",
-      "Off(0), Generic(1), PaddedCell(2), Room(3), Bathroom(4), Livingroom(5), StoneRoom(6), Auditorium(7), ConcertHall(8), Cave(9), Arena(10), Hangar(11), CarpetedHallway(12), Hallway(13), StoneCorridor(14), Alley(15), Forest(16), City(17), Mountains(18), Quarry(19), Plain(20), ParkingLot(21), SewerPipe(22), Underwater(23), User(24)",
-      "1"
-     ]
+     "type": "enum",
+     "description": "Off(0), Generic(1), PaddedCell(2), Room(3), Bathroom(4), Livingroom(5), StoneRoom(6), Auditorium(7), ConcertHall(8), Cave(9), Arena(10), Hangar(11), CarpetedHallway(12), Hallway(13), StoneCorridor(14), Alley(15), Forest(16), City(17), Mountains(18), Quarry(19), Plain(20), ParkingLot(21), SewerPipe(22), Underwater(23), User(24)",
+     "default": "1"
     },
     "room": {
-     "__args__": [
-      "int",
-      "Room effect level. -10000 to 0.",
-      "-1000"
-     ]
+     "type": "int",
+     "description": "Room effect level. -10000 to 0.",
+     "default": "-1000"
     },
     "roomHF": {
-     "__args__": [
-      "int",
-      "High-frequency room effect. -10000 to 0.",
-      "-100"
-     ]
+     "type": "int",
+     "description": "High-frequency room effect. -10000 to 0.",
+     "default": "-100"
     }
    }
   }
  },
  "layoutPatterns": {
   "dialog": {
-   "Name": "Dialog / Modal Panel",
-   "Description": "Centered popup dialog with title, content, and button row.",
-   "Structure": "Canvas\n  └─ DialogRoot (Image, center-anchored, size: 500x400)\n       ├─ Title (TextMeshProUGUI, top area, fontSize: 28)\n       ├─ Content (TextMeshProUGUI or ScrollRect, middle area)\n       └─ ButtonGroup (HorizontalLayoutGroup, bottom area, spacing: 10)\n            ├─ CancelBtn (Image+Button, 120x40)\n            │    └─ Text (TextMeshProUGUI)\n            └─ ConfirmBtn (Image+Button, 120x40)\n                 └─ Text (TextMeshProUGUI)",
-   "Notes": "DialogRoot: anchorMin/Max=(0.5,0.5), pivot=(0.5,0.5). Use VerticalLayoutGroup on DialogRoot for auto-layout, or manually position children."
+   "name": "Dialog / Modal Panel",
+   "description": "Centered popup dialog with title, content, and button row.",
+   "structure": "Canvas\n  └─ DialogRoot (Image, center-anchored, size: 500x400)\n       ├─ Title (TextMeshProUGUI, top area, fontSize: 28)\n       ├─ Content (TextMeshProUGUI or ScrollRect, middle area)\n       └─ ButtonGroup (HorizontalLayoutGroup, bottom area, spacing: 10)\n            ├─ CancelBtn (Image+Button, 120x40)\n            │    └─ Text (TextMeshProUGUI)\n            └─ ConfirmBtn (Image+Button, 120x40)\n                 └─ Text (TextMeshProUGUI)",
+   "notes": "DialogRoot: anchorMin/Max=(0.5,0.5), pivot=(0.5,0.5). Use VerticalLayoutGroup on DialogRoot for auto-layout, or manually position children."
   },
   "scroll_list": {
-   "Name": "Scrollable List",
-   "Description": "Vertical scrollable list with items.",
-   "Structure": "Canvas\n  └─ ScrollView (ScrollRect + Image + RectMask2D, stretch or fixed size)\n       ├─ Viewport (RectMask2D, stretch to parent)\n       │    └─ Content (VerticalLayoutGroup + ContentSizeFitter[verticalFit=PreferredSize])\n       │         ├─ Item1 (Image, LayoutElement[preferredHeight=60])\n       │         ├─ Item2 ...\n       │         └─ ItemN ...\n       └─ Scrollbar (optional, Scrollbar component)",
-   "Notes": "ScrollRect.content = Content transform. ScrollRect.viewport = Viewport transform. Content anchor: top-stretch (min=0,1 max=1,1 pivot=0.5,1) so it grows downward."
+   "name": "Scrollable List",
+   "description": "Vertical scrollable list with items.",
+   "structure": "Canvas\n  └─ ScrollView (ScrollRect + Image + RectMask2D, stretch or fixed size)\n       ├─ Viewport (RectMask2D, stretch to parent)\n       │    └─ Content (VerticalLayoutGroup + ContentSizeFitter[verticalFit=PreferredSize])\n       │         ├─ Item1 (Image, LayoutElement[preferredHeight=60])\n       │         ├─ Item2 ...\n       │         └─ ItemN ...\n       └─ Scrollbar (optional, Scrollbar component)",
+   "notes": "ScrollRect.content = Content transform. ScrollRect.viewport = Viewport transform. Content anchor: top-stretch (min=0,1 max=1,1 pivot=0.5,1) so it grows downward."
   },
   "tab_bar": {
-   "Name": "Tab Bar Navigation",
-   "Description": "Horizontal tab buttons with content area below.",
-   "Structure": "Canvas\n  └─ TabContainer (stretch or fixed)\n       ├─ TabBar (HorizontalLayoutGroup, top area, height: 50)\n       │    ├─ Tab1 (Image+Button, LayoutElement)\n       │    │    └─ Text\n       │    ├─ Tab2 ...\n       │    └─ Tab3 ...\n       └─ ContentArea (below TabBar, stretch remaining space)\n            ├─ Page1 (active/inactive toggle)\n            ├─ Page2 ...\n            └─ Page3 ...",
-   "Notes": "Control tab switching via script: activate one Page and deactivate others. Use Toggle+ToggleGroup for tab state management."
+   "name": "Tab Bar Navigation",
+   "description": "Horizontal tab buttons with content area below.",
+   "structure": "Canvas\n  └─ TabContainer (stretch or fixed)\n       ├─ TabBar (HorizontalLayoutGroup, top area, height: 50)\n       │    ├─ Tab1 (Image+Button, LayoutElement)\n       │    │    └─ Text\n       │    ├─ Tab2 ...\n       │    └─ Tab3 ...\n       └─ ContentArea (below TabBar, stretch remaining space)\n            ├─ Page1 (active/inactive toggle)\n            ├─ Page2 ...\n            └─ Page3 ...",
+   "notes": "Control tab switching via script: activate one Page and deactivate others. Use Toggle+ToggleGroup for tab state management."
   },
   "hud": {
-   "Name": "HUD (Heads-Up Display)",
-   "Description": "Game UI overlay with health, score, mini-map, and action buttons.",
-   "Structure": "Canvas\n  └─ HUD\n       ├─ TopBar (anchor: top-stretch)\n       │    ├─ HealthBar (Image[Filled], left side)\n       │    │    └─ HealthText (TextMeshProUGUI)\n       │    └─ ScoreText (TextMeshProUGUI, right side)\n       ├─ MiniMap (Image, anchor: top-right, size: 150x150)\n       │    └─ MapContent (RawImage or custom)\n       └─ BottomBar (anchor: bottom-stretch)\n            └─ ActionButtons (HorizontalLayoutGroup, center)\n                 ├─ Btn1 (Image+Button, 60x60)\n                 ├─ Btn2 ...\n                 └─ Btn3 ...",
-   "Notes": "Anchor TopBar to top, BottomBar to bottom, MiniMap to top-right corner. Use offsetMin/offsetMax for margins from screen edges."
+   "name": "HUD (Heads-Up Display)",
+   "description": "Game UI overlay with health, score, mini-map, and action buttons.",
+   "structure": "Canvas\n  └─ HUD\n       ├─ TopBar (anchor: top-stretch)\n       │    ├─ HealthBar (Image[Filled], left side)\n       │    │    └─ HealthText (TextMeshProUGUI)\n       │    └─ ScoreText (TextMeshProUGUI, right side)\n       ├─ MiniMap (Image, anchor: top-right, size: 150x150)\n       │    └─ MapContent (RawImage or custom)\n       └─ BottomBar (anchor: bottom-stretch)\n            └─ ActionButtons (HorizontalLayoutGroup, center)\n                 ├─ Btn1 (Image+Button, 60x60)\n                 ├─ Btn2 ...\n                 └─ Btn3 ...",
+   "notes": "Anchor TopBar to top, BottomBar to bottom, MiniMap to top-right corner. Use offsetMin/offsetMax for margins from screen edges."
   },
   "settings_form": {
-   "Name": "Settings / Form",
-   "Description": "Vertically arranged form with labels and controls.",
-   "Structure": "Canvas\n  └─ SettingsPanel (Image, center-anchored or stretch)\n       └─ Content (VerticalLayoutGroup, padding: 20, spacing: 15)\n            ├─ Header (TextMeshProUGUI, fontSize: 28)\n            ├─ Row1 (HorizontalLayoutGroup)\n            │    ├─ Label (TextMeshProUGUI, 'Volume')\n            │    └─ Slider (Slider, flex width)\n            ├─ Row2 (HorizontalLayoutGroup)\n            │    ├─ Label ('Difficulty')\n            │    └─ Dropdown (Dropdown)\n            ├─ Row3 (HorizontalLayoutGroup)\n            │    ├─ Label ('Fullscreen')\n            │    └─ Toggle (Toggle)\n            └─ SaveButton (Image+Button, 200x50, center)",
-   "Notes": "Use LayoutElement on Labels for fixed width (e.g., 150). Use flexible width on controls."
+   "name": "Settings / Form",
+   "description": "Vertically arranged form with labels and controls.",
+   "structure": "Canvas\n  └─ SettingsPanel (Image, center-anchored or stretch)\n       └─ Content (VerticalLayoutGroup, padding: 20, spacing: 15)\n            ├─ Header (TextMeshProUGUI, fontSize: 28)\n            ├─ Row1 (HorizontalLayoutGroup)\n            │    ├─ Label (TextMeshProUGUI, 'Volume')\n            │    └─ Slider (Slider, flex width)\n            ├─ Row2 (HorizontalLayoutGroup)\n            │    ├─ Label ('Difficulty')\n            │    └─ Dropdown (Dropdown)\n            ├─ Row3 (HorizontalLayoutGroup)\n            │    ├─ Label ('Fullscreen')\n            │    └─ Toggle (Toggle)\n            └─ SaveButton (Image+Button, 200x50, center)",
+   "notes": "Use LayoutElement on Labels for fixed width (e.g., 150). Use flexible width on controls."
   },
   "inventory_grid": {
-   "Name": "Inventory Grid",
-   "Description": "Grid of item slots, typically in a scroll view.",
-   "Structure": "Canvas\n  └─ InventoryPanel (Image, center-anchored)\n       ├─ Title (TextMeshProUGUI)\n       └─ ScrollView (ScrollRect + RectMask2D)\n            └─ Viewport\n                 └─ Content (GridLayoutGroup, cellSize: 80x80, spacing: 5)\n                      ├─ Slot1 (Image + Button)\n                      │    ├─ Icon (Image)\n                      │    └─ Count (TextMeshProUGUI)\n                      ├─ Slot2 ...\n                      └─ SlotN ...",
-   "Notes": "GridLayoutGroup.constraint=FixedColumnCount for consistent columns. Content anchor: top-stretch, ContentSizeFitter verticalFit=PreferredSize."
+   "name": "Inventory Grid",
+   "description": "Grid of item slots, typically in a scroll view.",
+   "structure": "Canvas\n  └─ InventoryPanel (Image, center-anchored)\n       ├─ Title (TextMeshProUGUI)\n       └─ ScrollView (ScrollRect + RectMask2D)\n            └─ Viewport\n                 └─ Content (GridLayoutGroup, cellSize: 80x80, spacing: 5)\n                      ├─ Slot1 (Image + Button)\n                      │    ├─ Icon (Image)\n                      │    └─ Count (TextMeshProUGUI)\n                      ├─ Slot2 ...\n                      └─ SlotN ...",
+   "notes": "GridLayoutGroup.constraint=FixedColumnCount for consistent columns. Content anchor: top-stretch, ContentSizeFitter verticalFit=PreferredSize."
   },
   "toast": {
-   "Name": "Toast / Notification",
-   "Description": "Brief auto-dismissing message popup, typically at top or bottom of screen.",
-   "Structure": "Canvas\n  └─ ToastContainer (anchor: top-center or bottom-center, CanvasGroup for fade)\n       └─ Toast (Image, size: 400x60, horizontal padding: 20)\n            ├─ Icon (Image, 32x32, optional)\n            └─ Message (TextMeshProUGUI, flex width, fontSize: 16)",
-   "Notes": "Use CanvasGroup.alpha for fade-in/out animation. Auto-destroy via script after 2-3s. Stack multiple toasts with VerticalLayoutGroup on container. Use ContentSizeFitter for auto-width."
+   "name": "Toast / Notification",
+   "description": "Brief auto-dismissing message popup, typically at top or bottom of screen.",
+   "structure": "Canvas\n  └─ ToastContainer (anchor: top-center or bottom-center, CanvasGroup for fade)\n       └─ Toast (Image, size: 400x60, horizontal padding: 20)\n            ├─ Icon (Image, 32x32, optional)\n            └─ Message (TextMeshProUGUI, flex width, fontSize: 16)",
+   "notes": "Use CanvasGroup.alpha for fade-in/out animation. Auto-destroy via script after 2-3s. Stack multiple toasts with VerticalLayoutGroup on container. Use ContentSizeFitter for auto-width."
   },
   "loading_screen": {
-   "Name": "Loading Screen",
-   "Description": "Full-screen loading overlay with progress bar and tips.",
-   "Structure": "Canvas (sortingOrder: 999)\n  └─ LoadingScreen (Image, stretch_full, background color/image)\n       ├─ Logo (Image, center, size: 200x200)\n       ├─ ProgressBarBg (Image, bottom area, 600x20, dark color)\n       │    └─ ProgressBarFill (Image[Filled, Horizontal], stretch_full, bright color)\n       ├─ PercentText (TextMeshProUGUI, above bar, fontSize: 18)\n       └─ TipText (TextMeshProUGUI, below bar, fontSize: 14, italic)",
-   "Notes": "Update ProgressBarFill.fillAmount (0-1) from loading code. Use CanvasGroup for fade-out when complete. Place on a separate Canvas with high sortingOrder to overlay everything."
+   "name": "Loading Screen",
+   "description": "Full-screen loading overlay with progress bar and tips.",
+   "structure": "Canvas (sortingOrder: 999)\n  └─ LoadingScreen (Image, stretch_full, background color/image)\n       ├─ Logo (Image, center, size: 200x200)\n       ├─ ProgressBarBg (Image, bottom area, 600x20, dark color)\n       │    └─ ProgressBarFill (Image[Filled, Horizontal], stretch_full, bright color)\n       ├─ PercentText (TextMeshProUGUI, above bar, fontSize: 18)\n       └─ TipText (TextMeshProUGUI, below bar, fontSize: 14, italic)",
+   "notes": "Update ProgressBarFill.fillAmount (0-1) from loading code. Use CanvasGroup for fade-out when complete. Place on a separate Canvas with high sortingOrder to overlay everything."
   },
   "health_bar": {
-   "Name": "Health Bar / Progress Bar",
-   "Description": "Reusable horizontal bar showing a value as filled portion.",
-   "Structure": "HealthBar (empty, size: 200x24)\n  ├─ Background (Image, stretch_full, dark color, sprite: background)\n  ├─ Fill (Image[type=Filled, fillMethod=Horizontal], stretch_full, green/red)\n  ├─ Border (Image, stretch_full, outline sprite, raycastTarget=false)\n  └─ ValueText (TextMeshProUGUI, center, fontSize: 14, optional)",
-   "Notes": "Set Fill.fillAmount = currentHP / maxHP. For smooth animation, lerp fillAmount over time. Color-code: green > 60%, yellow 30-60%, red < 30%. Can also use Slider component for built-in handle support."
+   "name": "Health Bar / Progress Bar",
+   "description": "Reusable horizontal bar showing a value as filled portion.",
+   "structure": "HealthBar (empty, size: 200x24)\n  ├─ Background (Image, stretch_full, dark color, sprite: background)\n  ├─ Fill (Image[type=Filled, fillMethod=Horizontal], stretch_full, green/red)\n  ├─ Border (Image, stretch_full, outline sprite, raycastTarget=false)\n  └─ ValueText (TextMeshProUGUI, center, fontSize: 14, optional)",
+   "notes": "Set Fill.fillAmount = currentHP / maxHP. For smooth animation, lerp fillAmount over time. Color-code: green > 60%, yellow 30-60%, red < 30%. Can also use Slider component for built-in handle support."
   },
   "tooltip": {
-   "Name": "Tooltip / Hover Info",
-   "Description": "Small popup panel that follows cursor or appears near a UI element.",
-   "Structure": "Canvas\n  └─ Tooltip (CanvasGroup, starts alpha=0)\n       └─ TooltipPanel (Image, ContentSizeFitter[both=PreferredSize])\n            └─ Content (VerticalLayoutGroup, padding: 10, spacing: 4)\n                 ├─ Title (TextMeshProUGUI, fontSize: 16, bold)\n                 └─ Description (TextMeshProUGUI, fontSize: 13, max width: 300)",
-   "Notes": "Position via RectTransformUtility.ScreenPointToLocalPointInRectangle. Use CanvasGroup for fade. Set pivot based on screen quadrant to avoid clipping. ContentSizeFitter auto-sizes to text. Disable raycastTarget on all children."
+   "name": "Tooltip / Hover Info",
+   "description": "Small popup panel that follows cursor or appears near a UI element.",
+   "structure": "Canvas\n  └─ Tooltip (CanvasGroup, starts alpha=0)\n       └─ TooltipPanel (Image, ContentSizeFitter[both=PreferredSize])\n            └─ Content (VerticalLayoutGroup, padding: 10, spacing: 4)\n                 ├─ Title (TextMeshProUGUI, fontSize: 16, bold)\n                 └─ Description (TextMeshProUGUI, fontSize: 13, max width: 300)",
+   "notes": "Position via RectTransformUtility.ScreenPointToLocalPointInRectangle. Use CanvasGroup for fade. Set pivot based on screen quadrant to avoid clipping. ContentSizeFitter auto-sizes to text. Disable raycastTarget on all children."
   },
   "minimap": {
-   "Name": "Minimap",
-   "Description": "Corner minimap showing top-down view of the game world.",
-   "Structure": "Canvas\n  └─ MinimapFrame (Image, anchor: top-right, size: 180x180)\n       ├─ MinimapMask (Mask + Image[circle sprite])\n       │    └─ MapView (RawImage, stretch_full, targetTexture: minimapRT)\n       ├─ PlayerIcon (Image, center, 12x12, always-on-top)\n       └─ Border (Image, stretch_full, decorative frame, raycastTarget=false)",
-   "Notes": "Use a separate Camera (cullingMask=MinimapLayer, orthographic=true) rendering to a RenderTexture. Update camera position to follow player. Rotate MapView or camera for rotating minimap. Use Mask with circle sprite for round minimap."
+   "name": "Minimap",
+   "description": "Corner minimap showing top-down view of the game world.",
+   "structure": "Canvas\n  └─ MinimapFrame (Image, anchor: top-right, size: 180x180)\n       ├─ MinimapMask (Mask + Image[circle sprite])\n       │    └─ MapView (RawImage, stretch_full, targetTexture: minimapRT)\n       ├─ PlayerIcon (Image, center, 12x12, always-on-top)\n       └─ Border (Image, stretch_full, decorative frame, raycastTarget=false)",
+   "notes": "Use a separate Camera (cullingMask=MinimapLayer, orthographic=true) rendering to a RenderTexture. Update camera position to follow player. Rotate MapView or camera for rotating minimap. Use Mask with circle sprite for round minimap."
   },
   "shop_store": {
-   "Name": "Shop / Store",
-   "Description": "Item purchase interface with categories, items grid, and detail panel.",
-   "Structure": "Canvas\n  └─ ShopPanel (Image, center or stretch)\n       ├─ Header (HorizontalLayoutGroup)\n       │    ├─ Title (TextMeshProUGUI, 'Shop')\n       │    ├─ CurrencyIcon (Image, 24x24)\n       │    ├─ CurrencyText (TextMeshProUGUI)\n       │    └─ CloseBtn (Button+Image, top-right)\n       ├─ CategoryBar (HorizontalLayoutGroup, Toggle+ToggleGroup)\n       │    ├─ WeaponsTab, ArmorTab, PotionsTab ...\n       ├─ ItemsScrollView (ScrollRect)\n       │    └─ Content (GridLayoutGroup, cellSize: 120x140)\n       │         └─ ItemCard (Image+Button)\n       │              ├─ ItemIcon (Image)\n       │              ├─ ItemName (TextMeshProUGUI)\n       │              └─ PriceTag (HorizontalLayoutGroup)\n       │                   ├─ CoinIcon (Image)\n       │                   └─ Price (TextMeshProUGUI)\n       └─ DetailPanel (Image, right side or popup)\n            ├─ ItemPreview, Description, Stats\n            └─ BuyButton",
-   "Notes": "Use Toggle+ToggleGroup for category tabs. Filter items by category in script. Highlight unaffordable items (dim or red price). DetailPanel updates on item selection."
+   "name": "Shop / Store",
+   "description": "Item purchase interface with categories, items grid, and detail panel.",
+   "structure": "Canvas\n  └─ ShopPanel (Image, center or stretch)\n       ├─ Header (HorizontalLayoutGroup)\n       │    ├─ Title (TextMeshProUGUI, 'Shop')\n       │    ├─ CurrencyIcon (Image, 24x24)\n       │    ├─ CurrencyText (TextMeshProUGUI)\n       │    └─ CloseBtn (Button+Image, top-right)\n       ├─ CategoryBar (HorizontalLayoutGroup, Toggle+ToggleGroup)\n       │    ├─ WeaponsTab, ArmorTab, PotionsTab ...\n       ├─ ItemsScrollView (ScrollRect)\n       │    └─ Content (GridLayoutGroup, cellSize: 120x140)\n       │         └─ ItemCard (Image+Button)\n       │              ├─ ItemIcon (Image)\n       │              ├─ ItemName (TextMeshProUGUI)\n       │              └─ PriceTag (HorizontalLayoutGroup)\n       │                   ├─ CoinIcon (Image)\n       │                   └─ Price (TextMeshProUGUI)\n       └─ DetailPanel (Image, right side or popup)\n            ├─ ItemPreview, Description, Stats\n            └─ BuyButton",
+   "notes": "Use Toggle+ToggleGroup for category tabs. Filter items by category in script. Highlight unaffordable items (dim or red price). DetailPanel updates on item selection."
   },
   "leaderboard": {
-   "Name": "Leaderboard / Rankings",
-   "Description": "Scrollable ranked list with player scores.",
-   "Structure": "Canvas\n  └─ LeaderboardPanel (Image, center-anchored, 500x600)\n       ├─ Title (TextMeshProUGUI, 'Leaderboard', fontSize: 28)\n       ├─ TabBar (HorizontalLayoutGroup: Daily/Weekly/AllTime)\n       ├─ HeaderRow (HorizontalLayoutGroup, bold labels)\n       │    ├─ Rank, Name, Score columns\n       ├─ ScrollView (ScrollRect + RectMask2D)\n       │    └─ Content (VerticalLayoutGroup, spacing: 2)\n       │         └─ Row (HorizontalLayoutGroup, Image bg)\n       │              ├─ RankText (TextMeshProUGUI, width: 50)\n       │              ├─ Avatar (Image, 32x32)\n       │              ├─ NameText (TextMeshProUGUI, flex)\n       │              └─ ScoreText (TextMeshProUGUI, width: 100)\n       └─ MyRankBar (Image, bottom, highlight color)",
-   "Notes": "Highlight current player row with different bg color. Top 3 ranks can use special icons (gold/silver/bronze). MyRankBar always visible at bottom showing player's own rank."
+   "name": "Leaderboard / Rankings",
+   "description": "Scrollable ranked list with player scores.",
+   "structure": "Canvas\n  └─ LeaderboardPanel (Image, center-anchored, 500x600)\n       ├─ Title (TextMeshProUGUI, 'Leaderboard', fontSize: 28)\n       ├─ TabBar (HorizontalLayoutGroup: Daily/Weekly/AllTime)\n       ├─ HeaderRow (HorizontalLayoutGroup, bold labels)\n       │    ├─ Rank, Name, Score columns\n       ├─ ScrollView (ScrollRect + RectMask2D)\n       │    └─ Content (VerticalLayoutGroup, spacing: 2)\n       │         └─ Row (HorizontalLayoutGroup, Image bg)\n       │              ├─ RankText (TextMeshProUGUI, width: 50)\n       │              ├─ Avatar (Image, 32x32)\n       │              ├─ NameText (TextMeshProUGUI, flex)\n       │              └─ ScoreText (TextMeshProUGUI, width: 100)\n       └─ MyRankBar (Image, bottom, highlight color)",
+   "notes": "Highlight current player row with different bg color. Top 3 ranks can use special icons (gold/silver/bronze). MyRankBar always visible at bottom showing player's own rank."
   },
   "confirm_popup": {
-   "Name": "Confirm Popup / Alert",
-   "Description": "Simple yes/no confirmation dialog with optional icon.",
-   "Structure": "Canvas (sortingOrder: 100)\n  └─ Overlay (Image, stretch_full, color: rgba(0,0,0,0.5), blocks clicks)\n       └─ Popup (Image, center, 400x250, CanvasGroup)\n            ├─ Icon (Image, optional, 48x48, warning/error/info)\n            ├─ Message (TextMeshProUGUI, center area, fontSize: 18)\n            └─ ButtonRow (HorizontalLayoutGroup, bottom, spacing: 20)\n                 ├─ CancelBtn (Image+Button, 120x40)\n                 │    └─ Text ('Cancel')\n                 └─ ConfirmBtn (Image+Button, 120x40, accent color)\n                      └─ Text ('Confirm')",
-   "Notes": "Use dark semi-transparent overlay to block interaction with background. CanvasGroup for popup fade-in animation. Set overlay's Button onClick to cancel for dismiss-on-background-click."
+   "name": "Confirm Popup / Alert",
+   "description": "Simple yes/no confirmation dialog with optional icon.",
+   "structure": "Canvas (sortingOrder: 100)\n  └─ Overlay (Image, stretch_full, color: rgba(0,0,0,0.5), blocks clicks)\n       └─ Popup (Image, center, 400x250, CanvasGroup)\n            ├─ Icon (Image, optional, 48x48, warning/error/info)\n            ├─ Message (TextMeshProUGUI, center area, fontSize: 18)\n            └─ ButtonRow (HorizontalLayoutGroup, bottom, spacing: 20)\n                 ├─ CancelBtn (Image+Button, 120x40)\n                 │    └─ Text ('Cancel')\n                 └─ ConfirmBtn (Image+Button, 120x40, accent color)\n                      └─ Text ('Confirm')",
+   "notes": "Use dark semi-transparent overlay to block interaction with background. CanvasGroup for popup fade-in animation. Set overlay's Button onClick to cancel for dismiss-on-background-click."
   },
   "chat_message_list": {
-   "Name": "Chat / Message List",
-   "Description": "Scrollable message list with different alignments for sent/received.",
-   "Structure": "Canvas\n  └─ ChatPanel (Image, stretch or fixed)\n       ├─ MessageList (ScrollRect, flex area)\n       │    └─ Viewport (RectMask2D)\n       │         └─ Content (VerticalLayoutGroup, spacing: 8, padding: 10)\n       │              ├─ ReceivedMsg (HorizontalLayoutGroup, childAlignment: MiddleLeft)\n       │              │    ├─ Avatar (Image, 36x36)\n       │              │    └─ Bubble (Image[Sliced], ContentSizeFitter, max width: 280)\n       │              │         └─ Text (TextMeshProUGUI, fontSize: 14)\n       │              └─ SentMsg (HorizontalLayoutGroup, childAlignment: MiddleRight)\n       │                   └─ Bubble (Image[Sliced], different color)\n       │                        └─ Text\n       └─ InputBar (HorizontalLayoutGroup, bottom, height: 50)\n            ├─ InputField (TMP_InputField, flex)\n            └─ SendBtn (Button+Image, 50x40)",
-   "Notes": "Content anchored top-stretch with ContentSizeFitter[vertical=PreferredSize]. New messages append to bottom. Auto-scroll to bottom on new message. Use LayoutElement with maxWidth on bubbles. Sent messages right-aligned via LayoutElement with flexibleWidth on left spacer."
+   "name": "Chat / Message List",
+   "description": "Scrollable message list with different alignments for sent/received.",
+   "structure": "Canvas\n  └─ ChatPanel (Image, stretch or fixed)\n       ├─ MessageList (ScrollRect, flex area)\n       │    └─ Viewport (RectMask2D)\n       │         └─ Content (VerticalLayoutGroup, spacing: 8, padding: 10)\n       │              ├─ ReceivedMsg (HorizontalLayoutGroup, childAlignment: MiddleLeft)\n       │              │    ├─ Avatar (Image, 36x36)\n       │              │    └─ Bubble (Image[Sliced], ContentSizeFitter, max width: 280)\n       │              │         └─ Text (TextMeshProUGUI, fontSize: 14)\n       │              └─ SentMsg (HorizontalLayoutGroup, childAlignment: MiddleRight)\n       │                   └─ Bubble (Image[Sliced], different color)\n       │                        └─ Text\n       └─ InputBar (HorizontalLayoutGroup, bottom, height: 50)\n            ├─ InputField (TMP_InputField, flex)\n            └─ SendBtn (Button+Image, 50x40)",
+   "notes": "Content anchored top-stretch with ContentSizeFitter[vertical=PreferredSize]. New messages append to bottom. Auto-scroll to bottom on new message. Use LayoutElement with maxWidth on bubbles. Sent messages right-aligned via LayoutElement with flexibleWidth on left spacer."
   }
  },
  "anchorPresets": {

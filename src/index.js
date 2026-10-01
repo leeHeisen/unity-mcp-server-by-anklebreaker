@@ -36,6 +36,7 @@ import { probuilderTools } from "./tools/probuilder-tools.js";
 import { contextTools } from "./tools/context-tools.js";
 import { instanceTools } from "./tools/instance-tools.js";
 import { splitToolTiers } from "./tool-tiers.js";
+import { buildErrorHint } from "./knowledge.js";
 import { setAgentId, getProjectContext } from "./unity-editor-bridge.js";
 import {
   autoSelectInstance,
@@ -324,6 +325,10 @@ const TOOLS_SKIP_PORT_INJECT = new Set([
 // remains available on demand via unity_list_advanced_tools' schema echo.
 const COMPACT_TOOLS = process.env.UNITY_MCP_COMPACT_TOOLS === "1";
 
+// Failure responses get a short knowledge-base hint (common causes + how to pull the
+// full guide). Opt out with UNITY_MCP_NO_ERROR_HINTS=1.
+const NO_ERROR_HINTS = process.env.UNITY_MCP_NO_ERROR_HINTS === "1";
+
 server.setRequestHandler(ListToolsRequestSchema, async () => {
   return {
     tools: ALL_TOOLS.map(({ name, description, inputSchema }) => {
@@ -414,7 +419,9 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
       !name.startsWith("unity_hub_") &&
       name !== "unity_list_instances" &&
       name !== "unity_select_instance" &&
-      name !== "unity_get_project_context"
+      name !== "unity_get_project_context" &&
+      // unity_knowledge is served entirely from local data — never gate it on instance selection.
+      name !== "unity_knowledge"
     ) {
       debugLog(`BLOCKING tool ${name} due to selectionRequired=true`);
       return {
@@ -463,8 +470,17 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
 
     // Logical failures come back as HTTP 200 payloads ({success:false}, {error}, ...)
     // — surface them through the MCP isError flag so clients don't read them as success.
+    const resultIsError = !Array.isArray(result) && isErrorText(result);
+
+    // Attach the knowledge-base hint for the tool that just failed. Only on failures,
+    // and only when the tool has a mapped guide — a successful call never grows.
+    if (resultIsError && !NO_ERROR_HINTS) {
+      const hint = buildErrorHint(name);
+      if (hint) contentBlocks.push({ type: "text", text: hint });
+    }
+
     const response = { content: truncateResponseIfNeeded(contentBlocks) };
-    if (!Array.isArray(result) && isErrorText(result)) {
+    if (resultIsError) {
       response.isError = true;
     }
     return response;

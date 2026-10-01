@@ -159,10 +159,16 @@ describe("queue-mode session (single instance)", () => {
   // room for deliberate capability — still ~60% under the 120KB hard ceiling.
   // UNITY_MCP_COMPACT_TOOLS=1 (tested below) goes much further for constrained clients.
   // Bump this only for a real new capability, never to absorb prose creep.
+  //
+  // 48_000 → 49_000: +775 bytes for the `unity_knowledge` meta tool (issue: agents had no way to
+  // reach the 55 per-tool usage guides without loading them into every schema). The tool itself was
+  // trimmed twice before the bump — its description is now two lines and its properties one line
+  // each — so this is the floor for the capability, not prose creep. Docs still live in
+  // src/data/xman88/ and are fetched on demand, never inlined into tools/list.
   test("tools/list payload stays within the rich-mode diet budget", async () => {
     const { tools } = await client.listTools();
     const bytes = Buffer.byteLength(JSON.stringify(tools), "utf8");
-    assert.ok(bytes <= 48_000, `tools/list ${bytes} bytes exceeds the 48KB rich-mode budget`);
+    assert.ok(bytes <= 49_000, `tools/list ${bytes} bytes exceeds the 49KB rich-mode budget`);
   });
 
   // Lazy discovery is three-tier so finding one tool never costs a schema dump:
@@ -654,5 +660,184 @@ describe("multi-instance selection gate", () => {
     assert.match(missing.payloadText, /No running instance named/);
     assert.match(missing.payloadText, /ProjectA/, "error lists available instances");
     assert.equal(missing.isError, true);
+  });
+});
+
+// ─── xman88 knowledge payload ────────────────────────────────────────────────
+// The knowledge tool is served entirely from local JSON: it must answer with no
+// Unity instance in reach, and it must never be gated by the instance-selection
+// guard (agents reach for it precisely when a call just failed).
+
+describe("unity_knowledge (local knowledge payload)", () => {
+  /** @type {McpTestClient} */ let client;
+
+  before(async () => {
+    // Point the bridge at a dead port: proves the knowledge path does no Unity I/O.
+    client = new McpTestClient({
+      env: {
+        UNITY_BRIDGE_PORT: "1",
+        UNITY_PORT_RANGE_START: "1",
+        UNITY_PORT_RANGE_END: "1",
+        UNITY_INSTANCE_REGISTRY: join(tmpdir(), `mentions-none-${process.pid}.json`),
+      },
+      timeoutMs: 30_000,
+    }).start();
+    await client.initialize();
+  });
+
+  after(async () => {
+    await client.close();
+  });
+
+  test("is exposed alongside the other meta tools", async () => {
+    const { tools } = await client.listTools();
+    const names = tools.map((t) => t.name);
+    assert.ok(names.includes("unity_knowledge"), "unity_knowledge is in tools/list");
+    const tool = tools.find((t) => t.name === "unity_knowledge");
+    assert.equal(tool.inputSchema.type, "object");
+    for (const prop of ["topic", "query", "tool", "limit"]) {
+      assert.ok(tool.inputSchema.properties[prop], `unity_knowledge declares ${prop}`);
+    }
+  });
+
+  test("lists topics when called without arguments", async () => {
+    const res = await client.callTool("unity_knowledge");
+    assert.match(res.payloadText, /tool_guide \(55\)/);
+    assert.match(res.payloadText, /component_properties \(76\)/);
+    assert.match(res.payloadText, /i18n \(20\)/);
+  });
+
+  test("returns a tool guide by tool name without touching Unity", async () => {
+    const res = await client.callTool("unity_knowledge", { tool: "unity_component_add" });
+    assert.match(res.payloadText, /ComponentTools\.addComponent/);
+    assert.match(res.payloadText, /componentType/);
+    assert.match(res.payloadText, /Examples:/);
+    assert.equal(res.isError, false);
+  });
+
+  test("answers every topic over the wire", async () => {
+    const cases = [
+      ["component_properties", "anchorMin"],
+      ["layout_patterns", "health bar"],
+      ["anchor_presets", "stretch"],
+      ["ui_design_rules", "safearea"],
+      ["i18n", "zh:bridge.title"],
+    ];
+    for (const [topic, query] of cases) {
+      const res = await client.callTool("unity_knowledge", { topic, query });
+      assert.equal(res.isError, false, `${topic} call must not error`);
+      assert.ok(res.payloadText.length > 20, `${topic}/${query} produced output`);
+      assert.doesNotMatch(res.payloadText, /undefined \(/, `${topic}/${query} leaked an undefined field`);
+    }
+  });
+
+  test("ignores an injected port argument", async () => {
+    const res = await client.callTool("unity_knowledge", { tool: "unity_scene_new", port: 65000 });
+    assert.match(res.payloadText, /SceneTools\.createNewScene/);
+  });
+
+  test("unknown topic returns the topic list instead of an error", async () => {
+    const res = await client.callTool("unity_knowledge", { topic: "does_not_exist" });
+    assert.equal(res.isError, false);
+    assert.match(res.payloadText, /Available topics/);
+  });
+});
+
+describe("failure hints from the knowledge base", () => {
+  /** @type {MockBridge} */ let bridge;
+  /** @type {McpTestClient} */ let client;
+  /** @type {McpTestClient} */ let silentClient;
+  /** @type {MockBridge} */ let silentBridge;
+
+  before(async () => {
+    bridge = new MockBridge();
+    // A real, correctly-named tool that fails: the hint must come from the guide,
+    // not from a name suggestion.
+    bridge.on("component/add", () => ({ __fail: true, error: "GameObject not found: NoSuchThing" }));
+    bridge.on("scene/new", () => ({ __fail: true, error: "Scene already exists" }));
+    await bridge.start();
+
+    silentBridge = new MockBridge();
+    silentBridge.on("component/add", () => ({ __fail: true, error: "GameObject not found: NoSuchThing" }));
+    await silentBridge.start();
+
+    client = new McpTestClient({ env: bridge.env() }).start();
+    await client.initialize();
+    silentClient = new McpTestClient({ env: { ...silentBridge.env(), UNITY_MCP_NO_ERROR_HINTS: "1" } }).start();
+    await silentClient.initialize();
+  });
+
+  after(async () => {
+    await client.close();
+    await silentClient.close();
+    await bridge.stop();
+    await silentBridge.stop();
+  });
+
+  test("a failing tool call carries common causes and a pointer to its guide", async () => {
+    const res = await client.callTool("unity_component_add", { gameObject: "NoSuchThing", componentType: "Rigidbody" });
+    const text = res.blocks.map((b) => b.text || "").join("\n");
+    assert.match(text, /GameObject not found/, "original failure text survives");
+    assert.match(text, /Common causes/);
+    assert.match(text, /unity_knowledge\(tool:"unity_component_add"\)/);
+    assert.equal(res.isError, true, "the failure is still flagged as an error");
+  });
+
+  test("the hint matches the tool that failed", async () => {
+    const res = await client.callTool("unity_scene_new", { name: "Whatever" });
+    const text = res.blocks.map((b) => b.text || "").join("\n");
+    assert.match(text, /Common causes/);
+    assert.match(text, /unity_knowledge\(tool:"unity_scene_new"\)/);
+  });
+
+  test("UNITY_MCP_NO_ERROR_HINTS=1 disables the hint", async () => {
+    const res = await silentClient.callTool("unity_component_add", { gameObject: "NoSuchThing" });
+    const text = res.blocks.map((b) => b.text || "").join("\n");
+    assert.doesNotMatch(text, /Common causes/);
+    assert.equal(res.isError, true);
+  });
+
+  test("a tool without a guide still fails cleanly", async () => {
+    const res = await client.callTool("unity_terrain_raise_lower", { x: 0.5, z: 0.5, delta: 1 });
+    assert.equal(res.isError, true);
+  });
+});
+
+describe("UNITY_MCP_DISABLED_CATEGORIES", () => {
+  /** @type {MockBridge} */ let bridge;
+  /** @type {McpTestClient} */ let client;
+
+  before(async () => {
+    bridge = new MockBridge();
+    await bridge.start();
+    client = new McpTestClient({
+      env: { ...bridge.env(), UNITY_MCP_DISABLED_CATEGORIES: "terrain,amplify" },
+    }).start();
+    await client.initialize();
+  });
+
+  after(async () => {
+    await client.close();
+    await bridge.stop();
+  });
+
+  test("disabled categories disappear from the exposed surface", async () => {
+    const { tools } = await client.listTools();
+    const names = tools.map((t) => t.name);
+    assert.ok(!names.some((n) => n.startsWith("unity_terrain_")), "terrain tools are gone");
+    assert.ok(!names.some((n) => n.startsWith("unity_amplify_")), "amplify tools are gone");
+    assert.ok(names.includes("unity_scene_hierarchy"), "unrelated core tools survive");
+    assert.ok(names.includes("unity_knowledge"), "meta tools survive");
+  });
+
+  test("the advanced catalog drops the disabled categories too", async () => {
+    const cat = await client.callTool("unity_list_advanced_tools");
+    assert.ok(!JSON.stringify(cat.payload).includes('"terrain"'), "terrain is not in the catalog");
+    assert.ok(!JSON.stringify(cat.payload).includes('"amplify"'), "amplify is not in the catalog");
+  });
+
+  test("the knowledge base still documents the disabled categories", async () => {
+    const res = await client.callTool("unity_knowledge", { topic: "tool_guide", query: "createAsset" });
+    assert.match(res.payloadText, /AssetTools\.createAsset/);
   });
 });

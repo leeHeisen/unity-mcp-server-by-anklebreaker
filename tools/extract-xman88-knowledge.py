@@ -192,13 +192,62 @@ def balanced(text, start):
     raise ValueError("unbalanced braces")
 
 
+def _camel(name):
+    return name[:1].lower() + name[1:]
+
+
+# Field names as they appear in the C# initializers → the JSON shape we ship.
+FIELD_MAP = {
+    "ToolGuideData": {
+        "FullDescription": "fullDescription",
+        "Parameters": "parameters",
+        "Examples": "examples",
+        "Workflows": "workflows",
+        "UnityVersionNotes": "unityVersionNotes",
+        "CommonErrors": "commonErrors",
+    },
+    "ParameterGuide": {
+        "Name": "name",
+        "Type": "type",
+        "Required": "required",
+        "Description": "description",
+        "DefaultValue": "defaultValue",
+        "Constraints": "constraints",
+        "ValueExamples": "valueExamples",
+    },
+    "ComponentInfo": {
+        "FullType": "fullType",
+        "Category": "category",
+        "Description": "description",
+        "Properties": "properties",
+    },
+    "LayoutPattern": {
+        "Name": "name",
+        "Description": "description",
+        "Structure": "structure",
+        "Notes": "notes",
+    },
+}
+
+
 def to_json(node):
     if isinstance(node, Ctor):
         if node.type.startswith("List") or node.type.endswith("[]"):
             return [to_json(v) for v in node.items]
-        data = {k: to_json(v) for k, v in node.members.items()}
+        base_type = node.type.split(".")[-1].split("<")[0].strip()
+        if base_type == "PropInfo":
+            # new PropInfo("<type>", "<description>", "<default>")
+            args = [to_json(a) for a in node.args]
+            while len(args) < 3:
+                args.append(None)
+            return {"type": args[0], "description": args[1], "default": args[2]}
+        if base_type == "Dictionary":
+            # Dictionary keys are data (component names, action names) — never rename them.
+            return {k: to_json(v) for k, v in node.members.items()}
+        field_map = FIELD_MAP.get(base_type, {})
+        data = {field_map.get(k, k): to_json(v) for k, v in node.members.items()}
         if node.args:
-            data["__args__"] = [to_json(a) for a in node.args]
+            data["_args"] = [to_json(a) for a in node.args]
         return data
     if isinstance(node, list):
         return [to_json(v) for v in node]
